@@ -1,0 +1,32 @@
+{
+  "name": "web-estore",
+  "version": "1.0.0",
+  "description": "Website-E-Store: A comprehensive e-commerce solution designed for tech and electronics retailing. Features a streamlined customer journey from product discovery to secure checkout, integrated with a robust inventory management system to optimize retail operations.",
+  "homepage": "https://github.com/LeGiaBao2109/Web-EStore#readme",
+  "bugs": {
+    "url": "https://github.com/LeGiaBao2109/Web-EStore/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeGiaBao2109/Web-EStore.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "debug": "nodemon --inspect index.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.4.1",
+    "mongoose-slug-updater": "^3.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
