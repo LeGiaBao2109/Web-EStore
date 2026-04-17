@@ -226,3 +226,12 @@ img {
         padding-left: 0;
     }
 }
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    animation: fadeUp 0.3s ease;
+    transition: all 0.3s ease;
+
+}
