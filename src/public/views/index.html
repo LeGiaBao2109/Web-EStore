@@ -128,9 +128,9 @@
     <div class="section product-list py-5">
         <div class="container position-relative">
             <h2 class="text-center fw-bold mb-4">DANH SÁCH SẢN PHẨM</h2>
-            <button class="slider-btn prev-btn shadow-sm" onclick="slideList(-1)"><i
+            <button class="slider-btn prev-btn shadow-sm"><i
                     class="bi bi-chevron-left"></i></button>
-            <button class="slider-btn next-btn shadow-sm" onclick="slideList(1)"><i
+            <button class="slider-btn next-btn shadow-sm"><i
                     class="bi bi-chevron-right"></i></button>
             <div class="product-wrapper d-flex flex-nowrap gap-3" id="productSlider">
                 <div class="product-item">
@@ -149,7 +149,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -212,48 +211,11 @@
         </div>
     </footer>
 
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.getElementById('menuToggle');
-            const headerBottom = document.querySelector('.header-bottom');
-
-            if (menuToggle && headerBottom) {
-                menuToggle.addEventListener('click', function () {
-                    headerBottom.classList.toggle('show-menu');
-                });
-            }
-        });
-
-        function slideList(direction) {
-            const slider = document.getElementById('productSlider');
-            const scrollAmount = slider.clientWidth; // Cuộn theo chiều rộng khung nhìn
-            const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
-
-            // Tính toán vị trí mới
-            let newScrollLeft = slider.scrollLeft + (direction * (scrollAmount / 2));
-
-            // Xử lý vòng lặp
-            if (newScrollLeft >= maxScrollLeft + 10) {
-                // Nếu đang ở cuối mà bấm tới -> Quay về đầu
-                slider.scrollTo({ left: 0, behavior: 'smooth' });
-            } else if (newScrollLeft <= -10) {
-                // Nếu đang ở đầu mà bấm lùi -> Nhảy tới cuối
-                slider.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
-            } else {
-                // Cuộn bình thường
-                slider.scrollBy({
-                    left: direction * (scrollAmount / 2),
-                    behavior: 'smooth'
-                });
-            }
-        }
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
-    <script type="module" src="/assets/client/js/main.js"></script>
+    <script type="module" src="/assets/client/js/script.js"></script>
 </body>
 
 </html>

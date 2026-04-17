@@ -346,3 +346,18 @@ img {
 .next-btn {
     right: -10px;
 }
+
+.product-item .card-img-top {
+    height: 140px;
+    object-fit: contain;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .product-item h6 {
+        font-size: 0.85rem;
+    }
+    .product-item .btn {
+        font-size: 0.75rem;
+    }
+}

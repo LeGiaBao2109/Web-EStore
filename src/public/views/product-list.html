@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Danh Sách Sản Phẩm</title>
+    <link rel="stylesheet" href="/assets/client/css/style.css">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <header class="header-top navbar navbar-expand-lg navbar-light">
+        <div
+            class="header-top__container container container-fluid py-1 flex-lg-row flex-column align-items-center justify-content-between">
+            <a class="navbar-brand fw-bold text-white fs-3 d-lg-flex text-center" href="/">E-STORE</a>
+
+            <form class="d-flex w-100 me-3" role="search">
+                <input class="form-control mx-2 rounded-pill shadow-none" type="search" placeholder="Bạn đang tìm gì à?"
+                    aria-label="Search" />
+                <button class="btn header-top__btn--search text-white px-4 fw-bold text-uppercase border-0"
+                    type="submit">Search</button>
+            </form>
+            <div class="icons d-flex align-items-center justify-content-center gap-3">
+                <button class="btn text-white border-0 fs-2 p-0 me-2" id="menuToggle">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="sub-icons d-flex align-items-center justify-content-between gap-3">
+                    <a class="icon-link bg-white rounded-circle align-items-center justify-content-center" href="#">
+                        <i class="bi bi-cart fs-5 d-flex"></i>
+                    </a>
+                    <a class="icon-link bg-white rounded-circle align-items-center justify-content-center" href="">
+                        <i class="bi bi-person fs-5 d-flex"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="header-bottom">
+        <div class="container container-fluid">
+            <ul class="nav nav-brands justify-content-center d-flex align-items-center justify-content-between gap-3">
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-bold text-uppercase" href="#">IPHONE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-bold text-uppercase" href="#">SAMSUNG</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-bold text-uppercase" href="#">XIAOMI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-bold text-uppercase" href="#">VIVO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-bold text-uppercase" href="#">OPPO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-bold text-uppercase" href="#">REALME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white fw-bold text-uppercase" href="#">NOKIA</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="product-list-grid py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">DANH SÁCH SẢN PHẨM</h2>
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <div class="price-filter p-4 border rounded shadow-sm bg-light">
+                        <h5 class="fw-bold mb-3">Lọc theo giá</h5>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="price1">
+                            <label class="form-check-label" for="price1">Dưới 5 triệu</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="price2">
+                            <label class="form-check-label" for="price2">5 - 10 triệu</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="price3">
+                            <label class="form-check-label" for="price3">10 - 15 triệu</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="price4">
+                            <label class="form-check-label" for="price4">trên 15 triệu</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="row g-4" id="product-container">
+                        <div class="col-6 col-md-4 col-lg-3 product-item">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <a href="/">
+                                    <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
+                                        class="card-img-top" alt="...">
+                                </a>
+                                <div class="card-body text-center p-2">
+                                    <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">iPhone 15 Pro</h6>
+                                    <p class="text-danger fw-bold mb-2">25.990.000đ</p>
+                                    <div class="buttons d-flex gap-1">
+                                        <a href="" class="btn btn-outline-danger btn-sm rounded-pill w-100 p-1 text-center p-2"
+                                            style="font-size: 1rem;">Mua Ngay</a>
+                                        <a href="" class="btn btn-danger btn-sm rounded-circle p-2 text-center"><i
+                                                class="bi bi-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3 product-item">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <a href="/">
+                                    <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
+                                        class="card-img-top" alt="...">
+                                </a>
+                                <div class="card-body text-center p-2">
+                                    <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">iPhone 15 Pro</h6>
+                                    <p class="text-danger fw-bold mb-2">25.990.000đ</p>
+                                    <div class="buttons d-flex gap-1">
+                                        <a href="" class="btn btn-outline-danger btn-sm rounded-pill w-100 p-1 text-center p-2"
+                                            style="font-size: 1rem;">Mua Ngay</a>
+                                        <a href="" class="btn btn-danger btn-sm rounded-circle p-2 text-center"><i
+                                                class="bi bi-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3 product-item">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <a href="/">
+                                    <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
+                                        class="card-img-top" alt="...">
+                                </a>
+                                <div class="card-body text-center p-2">
+                                    <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">iPhone 15 Pro</h6>
+                                    <p class="text-danger fw-bold mb-2">25.990.000đ</p>
+                                    <div class="buttons d-flex gap-1">
+                                        <a href="" class="btn btn-outline-danger btn-sm rounded-pill w-100 p-1 text-center p-2"
+                                            style="font-size: 1rem;">Mua Ngay</a>
+                                        <a href="" class="btn btn-danger btn-sm rounded-circle p-2 text-center"><i
+                                                class="bi bi-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3 product-item">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <a href="/">
+                                    <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
+                                        class="card-img-top" alt="...">
+                                </a>
+                                <div class="card-body text-center p-2">
+                                    <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">iPhone 15 Pro</h6>
+                                    <p class="text-danger fw-bold mb-2">25.990.000đ</p>
+                                    <div class="buttons d-flex gap-1">
+                                        <a href="" class="btn btn-outline-danger btn-sm rounded-pill w-100 p-1 text-center p-2"
+                                            style="font-size: 1rem;">Mua Ngay</a>
+                                        <a href="" class="btn btn-danger btn-sm rounded-circle p-2 text-center"><i
+                                                class="bi bi-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-md-4 col-lg-3 product-item d-none">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <a href="/">
+                                    <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
+                                        class="card-img-top" alt="...">
+                                </a>
+                                <div class="card-body text-center p-2">
+                                    <h6 class="fw-bold mb-1" style="font-size: 0.9rem;">iPhone 15 Pro</h6>
+                                    <p class="text-danger fw-bold mb-2">25.990.000đ</p>
+                                    <div class="buttons d-flex gap-1">
+                                        <a href="" class="btn btn-outline-danger btn-sm rounded-pill w-100 p-1 text-center p-2"
+                                            style="font-size: 1rem;">Mua Ngay</a>
+                                        <a href="" class="btn btn-danger btn-sm rounded-circle p-2 text-center"><i
+                                                class="bi bi-cart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-5">
+                        <button id="loadMoreBtn" class="btn btn-danger px-5 py-2 fw-bold shadow">XEM THÊM SẢN
+                            PHẨM</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer class="footer mt-5">
+        <div class="footer-top py-5">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-5 col-md-6">
+                        <a class="navbar-brand fw-bold text-white fs-3 d-block mb-3" href="/">E-STORE</a>
+                        <p class="text-white-50">
+                            Chuyên cung cấp các thiết bị công nghệ chính hãng với mức giá cạnh tranh nhất thị trường.
+                            Chất lượng tạo nên niềm tin.
+                        </p>
+                        <div class="social-links d-flex gap-3 mt-4">
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white fw-bold mb-4">Hỗ trợ khách hàng</h5>
+                        <ul class="list-unstyled footer-links">
+                            <li><a href="#">Chính sách bảo hành</a></li>
+                            <li><a href="#">Chính sách đổi trả</a></li>
+                            <li><a href="#">Phương thức thanh toán</a></li>
+                            <li><a href="#">Giao hàng & Lắp đặt</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="text-white fw-bold mb-4">Thông tin liên hệ</h5>
+                        <ul class="list-unstyled text-white-50 footer-contact">
+                            <li class="mb-3">
+                                <i class="bi bi-geo-alt-fill me-2 text-third"></i>
+                                123 Đường ABC, Quận 1, TP. Hồ Chí Minh
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-telephone-fill me-2 text-third"></i>
+                                1900 1234
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-envelope-fill me-2 text-third"></i>
+                                contact@estore.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom py-3">
+            <div class="container text-center">
+                <p class="text-white-50 mb-0 small">
+                    © 2026 E-STORE. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script type="module" src="/assets/client/js/script.js"></script>
+</body>
+
+</html>
