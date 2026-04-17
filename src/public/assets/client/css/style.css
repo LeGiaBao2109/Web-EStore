@@ -290,7 +290,8 @@ img {
     justify-content: center;
 }
 
-.product-item .btn-danger:hover {
+.product-item .btn-danger:hover,
+.product__item--buttons .btn-danger:hover {
     background-color: var(--third-color) !important;
     color: #fff !important;
     transition: all 0.3s ease !important;
