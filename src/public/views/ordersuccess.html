@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/client/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/assets/vendor/bootstrap/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+
+  <body>
+    <header class="header-top navbar navbar-expand-lg navbar-light">
+      <div
+        class="header-top__container container container-fluid py-1 flex-lg-row flex-column align-items-center justify-content-between"
+      >
+        <a
+          class="navbar-brand fw-bold text-white fs-3 d-lg-flex text-center"
+          href="/"
+          >E-STORE</a
+        >
+
+        <form class="d-flex w-100 me-3" role="search">
+          <input
+            class="form-control mx-2 rounded-pill shadow-none"
+            type="search"
+            placeholder="Bạn đang tìm gì à?"
+            aria-label="Search"
+          />
+          <button
+            class="btn header-top__btn--search text-white px-4 fw-bold text-uppercase border-0"
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
+        <div
+          class="icons d-flex align-items-center justify-content-center gap-3"
+        >
+          <button class="btn text-white border-0 fs-2 p-0 me-2" id="menuToggle">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <div
+            class="sub-icons d-flex align-items-center justify-content-between gap-3"
+          >
+            <a
+              class="icon-link bg-white rounded-circle align-items-center justify-content-center"
+              href="#"
+            >
+              <i class="bi bi-cart fs-5 d-flex"></i>
+            </a>
+            <a
+              class="icon-link bg-white rounded-circle align-items-center justify-content-center"
+              href=""
+            >
+              <i class="bi bi-person fs-5 d-flex"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="header-bottom">
+      <div class="header-bottom__container container container-fluid py-1">
+        <ul class="nav d-flex align-items-center justify-content-between gap-3">
+          <li class="nav-item">
+            <a
+              class="nav-link text-white text-uppercase fw-bold active"
+              href="#"
+            >
+              <i class="bi me-2 bi-phone"></i>
+              Điện thoại
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text-uppercase fw-bold" href="#">
+              <i class="bi me-2 bi-tablet"></i>
+              Tablet
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text-uppercase fw-bold" href="#">
+              <i class="bi me-2 bi-laptop"></i>
+              Laptop
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text-uppercase fw-bold" href="#">
+              <i class="bi me-2 bi-display"></i>
+              Màn hình
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text-uppercase fw-bold" href="#">
+              <i class="bi me-2 bi-gear"></i>
+              Phụ kiện
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white text-uppercase fw-bold" href="#">
+              <i class="bi me-2 bi-house"></i>
+              Đồ gia dụng
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="w-75 m-auto">
+      <div class="mt-4 border border-1 border-black p-4 rounded-5">
+        <div class="row">
+          <h2 class="text-danger text-center my-4">Đặt hàng thành công</h2>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa_yCMKMu27cZ52Eu8akbjp4zFGBeKjKNE4luqdt1JOCxnZOBG"
+            alt=""
+            class="w-50"
+          />
+        </div>
+        <div class="row d-flex justify-content-center">
+          <button type="button" class="btn btn-danger w-25">
+            Quay lại trang chủ
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer mt-5">
+      <div class="footer-top py-5">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-5 col-md-6">
+              <a
+                class="navbar-brand fw-bold text-white fs-3 d-block mb-3"
+                href="/"
+                >E-STORE</a
+              >
+              <p class="text-white-50">
+                Chuyên cung cấp các thiết bị công nghệ chính hãng với mức giá
+                cạnh tranh nhất thị trường. Chất lượng tạo nên niềm tin.
+              </p>
+              <div class="social-links d-flex gap-3 mt-4">
+                <a href="#" class="social-icon"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="#" class="social-icon"
+                  ><i class="bi bi-youtube"></i
+                ></a>
+                <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                <a href="#" class="social-icon"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+              <h5 class="text-white fw-bold mb-4">Hỗ trợ khách hàng</h5>
+              <ul class="list-unstyled footer-links">
+                <li><a href="#">Chính sách bảo hành</a></li>
+                <li><a href="#">Chính sách đổi trả</a></li>
+                <li><a href="#">Phương thức thanh toán</a></li>
+                <li><a href="#">Giao hàng & Lắp đặt</a></li>
+              </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+              <h5 class="text-white fw-bold mb-4">Thông tin liên hệ</h5>
+              <ul class="list-unstyled text-white-50 footer-contact">
+                <li class="mb-3">
+                  <i class="bi bi-geo-alt-fill me-2 text-third"></i>
+                  123 Đường ABC, Quận 1, TP. Hồ Chí Minh
+                </li>
+                <li class="mb-3">
+                  <i class="bi bi-telephone-fill me-2 text-third"></i>
+                  1900 1234
+                </li>
+                <li class="mb-3">
+                  <i class="bi bi-envelope-fill me-2 text-third"></i>
+                  contact@estore.com
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom py-3">
+        <div class="container text-center">
+          <p class="text-white-50 mb-0 small">
+            © 2026 E-STORE. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menuToggle");
+        const headerBottom = document.querySelector(".header-bottom");
+
+        if (menuToggle && headerBottom) {
+          menuToggle.addEventListener("click", function () {
+            headerBottom.classList.toggle("show-menu");
+          });
+        }
+      });
+    </script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script type="module" src="/assets/client/js/main.js"></script>
+  </body>
+</html>
