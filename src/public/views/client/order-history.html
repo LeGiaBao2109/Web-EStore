@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/client/css/style.css" />
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+</head>
+
+<body>
+    <header class="header-top navbar navbar-expand-lg navbar-light">
+        <div
+            class="header-top__container container container-fluid py-1 flex-lg-row flex-column align-items-center justify-content-between">
+            <a class="navbar-brand fw-bold text-white fs-3 d-lg-flex text-center" href="/">E-STORE</a>
+        </div>
+        </div>
+    </header>
+
+    <section class="order-history py-5 bg-light">
+        <div class="container">
+            <div class="mb-4">
+                <a href="/user-profile" class="btn btn-outline-dark btn-sm rounded-pill px-3">
+                    <i class="bi bi-arrow-left me-1"></i> Quay lại tài khoản
+                </a>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+                        <h5 class="fw-bold mb-4 d-flex align-items-center">
+                            <i class="bi bi-box-seam me-2 text-danger"></i> Chi tiết đơn hàng #EST12345
+                        </h5>
+
+                        <div class="mb-3">
+                            <label class="text-muted small d-block">Trạng thái đơn hàng:</label>
+                            <span class="status-badge status-delivered">Giao hàng thành công</span>
+                        </div>
+
+                        <div class="order-info-list gy-3 row">
+                            <div class="col-12 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Tên người mua:</span>
+                                <span class="fw-bold">Trần Quốc Long</span>
+                            </div>
+                            <div class="col-6 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Số điện thoại:</span>
+                                <span>0358356268</span>
+                            </div>
+                            <div class="col-6 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Email:</span>
+                                <span>longtranquoc@gmail.com</span>
+                            </div>
+                            <div class="col-12 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Thời gian đặt hàng:</span>
+                                <span>10:30 - 18/04/2026</span>
+                            </div>
+                            <div class="col-12 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Địa chỉ nhận hàng:</span>
+                                <span>123 đường Mẹ Thiên Tích, P.11, Q.5, TP.HCM</span>
+                            </div>
+                            <div class="col-12 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Hình thức thanh toán:</span>
+                                <span>Tiền mặt khi nhận hàng (COD)</span>
+                            </div>
+                            <div class="col-12">
+                                <span class="text-muted small d-block">Ghi chú:</span>
+                                <p class="small mb-0 fst-italic">"Giao hàng giờ hành chính, gọi trước khi đến 15p"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm rounded-4 p-4">
+                        <h5 class="fw-bold mb-4">Danh sách sản phẩm (2)</h5>
+
+                        <div class="order-items mb-4">
+                            <div class="order-item-row mb-3 pb-3 border-bottom">
+                                <div class="flex-shrink-0 position-relative">
+                                    <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
+                                        class="rounded-3 border bg-white"
+                                        style="width: 75px; height: 75px; object-fit: contain;">
+                                </div>
+
+                                <div class="product-info-detail">
+                                    <h6 class="mb-0 fw-bold text-dark">iPhone 12 Mini</h6>
+                                    <small class="text-muted d-block mb-2">Mã SP: IP12-MN-BLUE</small>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="qty-label">SL: 1</span>
+                                        <button class="btn btn-review btn-sm rounded-pill px-3" data-bs-toggle="modal"
+                                            data-bs-target="#reviewModal" onclick="prepareReview('iPhone 12 Mini')">
+                                            <i class="bi bi-star-fill me-1"></i> Đánh giá
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="product-price-block">
+                                    <div class="fw-bold text-dark">30,000,000 đ</div>
+                                    <small class="text-muted"
+                                        style="text-decoration: line-through; font-size: 0.75rem;">32,000,000 đ</small>
+                                </div>
+                            </div>
+
+                            <div class="order-item-row mb-3">
+                                <div class="flex-shrink-0">
+                                    <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
+                                        class="rounded-3 border bg-white"
+                                        style="width: 75px; height: 75px; object-fit: contain;">
+                                </div>
+
+                                <div class="product-info-detail">
+                                    <h6 class="mb-0 fw-bold text-dark">iPhone 11 Pro Max</h6>
+                                    <small class="text-muted d-block mb-2">Mã SP: IP11-PM-NAVY</small>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <span class="qty-label">SL: 1</span>
+                                        <button class="btn btn-review btn-sm rounded-pill px-3">
+                                            <i class="bi bi-star-fill me-1"></i> Đánh giá
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="product-price-block">
+                                    <div class="fw-bold text-dark">20,000,000 đ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-summary bg-light p-4 rounded-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Tổng tiền hàng:</span>
+                                <span class="fw-bold">50,000,000 đ</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Phí vận chuyển:</span>
+                                <span class="text-success fw-bold">Miễn phí</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Thuế VAT:</span>
+                                <span>0 đ</span>
+                            </div>
+                            <hr class="my-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 fw-bold mb-0">Tổng thanh toán:</span>
+                                <span class="h4 fw-bold text-danger mb-0">50,000,000 đ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer mt-5">
+        <div class="footer-top py-5">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-5 col-md-6">
+                        <a class="navbar-brand fw-bold text-white fs-3 d-block mb-3" href="/">E-STORE</a>
+                        <p class="text-white-50">
+                            Chuyên cung cấp các thiết bị công nghệ chính hãng với mức giá
+                            cạnh tranh nhất thị trường. Chất lượng tạo nên niềm tin.
+                        </p>
+                        <div class="social-links d-flex gap-3 mt-4">
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white fw-bold mb-4">Hỗ trợ khách hàng</h5>
+                        <ul class="list-unstyled footer-links">
+                            <li><a href="#">Chính sách bảo hành</a></li>
+                            <li><a href="#">Chính sách đổi trả</a></li>
+                            <li><a href="#">Phương thức thanh toán</a></li>
+                            <li><a href="#">Giao hàng & Lắp đặt</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="text-white fw-bold mb-4">Thông tin liên hệ</h5>
+                        <ul class="list-unstyled text-white-50 footer-contact">
+                            <li class="mb-3">
+                                <i class="bi bi-geo-alt-fill me-2 text-third"></i>
+                                123 Đường ABC, Quận 1, TP. Hồ Chí Minh
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-telephone-fill me-2 text-third"></i>
+                                1900 1234
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-envelope-fill me-2 text-third"></i>
+                                contact@estore.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom py-3">
+            <div class="container text-center">
+                <p class="text-white-50 mb-0 small">
+                    © 2026 E-STORE. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold">Đánh giá sản phẩm</h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 p-2 border-start border-4 border-danger bg-light">
+                        <span class="text-muted small">Sản phẩm:</span>
+                        <div id="modalProductName" class="fw-bold text-dark"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="reviewText" class="form-label small fw-bold text-secondary">Cảm nhận của
+                            bạn:</label>
+                        <textarea class="form-control shadow-none rounded-3 border-secondary-subtle" id="reviewText"
+                            rows="4" placeholder="Nhập nội dung đánh giá tại đây..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger rounded-pill px-4 fw-bold">Gửi đánh giá</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script type="module" src="/assets/client/js/script.js"></script>
+</body>
+
+</html>

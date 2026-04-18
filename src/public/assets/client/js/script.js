@@ -2,6 +2,7 @@ import { initNavbar } from './utils/navbar.js';
 import { initProductSlider } from './utils/slider.js';
 import { initProductList } from './pages/product-list.js';
 import { initAuth } from './pages/auth.js';
+import { initOrderHistory } from './pages/order-history.js';
 
 $(function () {
     initNavbar();
@@ -19,8 +20,7 @@ $(function () {
     }
 
     initProductList();
-
     initAuth();
-
+    initOrderHistory();
     console.log("E-Store System Ready!");
 });
