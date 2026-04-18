@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang thông tin cá nhân</title>
+    <link rel="stylesheet" href="/assets/client/css/style.css">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../assets/client/css/user-profile.css">
+</head>
+
+<body>
+    <header class="header-top navbar navbar-expand-lg navbar-light">
+        <div
+            class="header-top__container container container-fluid py-1 flex-lg-row flex-column align-items-center justify-content-between">
+            <a class="navbar-brand fw-bold text-white fs-3 d-lg-flex text-center" href="/">E-STORE</a>
+
+            <form class="d-flex w-100 me-3" role="search">
+                <input class="form-control mx-2 rounded-pill shadow-none" type="search" placeholder="Bạn đang tìm gì à?"
+                    aria-label="Search" />
+                <button class="btn header-top__btn--search text-white px-4 fw-bold text-uppercase border-0"
+                    type="submit">Search</button>
+            </form>
+            <div class="icons d-flex align-items-center justify-content-center gap-3">
+                <button class="btn text-white border-0 fs-2 p-0 me-2" id="menuToggle">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="sub-icons d-flex align-items-center justify-content-between gap-3">
+                    <a class="icon-link bg-white rounded-circle align-items-center justify-content-center" href="#">
+                        <i class="bi bi-cart fs-5 d-flex"></i>
+                    </a>
+                    <a class="icon-link bg-white rounded-circle align-items-center justify-content-center" href="../views/user-profile.html">
+                        <i class="bi bi-person fs-5 d-flex"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="header-bottom">
+        <div class="header-bottom__container container container-fluid py-1">
+            <ul class="nav d-flex align-items-center justify-content-between gap-3">
+                <li class="nav-item">
+                    <a class="nav-link text-white text-uppercase fw-bold active" href="#">
+                        <i class="bi me-2 bi-phone"></i>
+                        Điện thoại
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
+                        <i class="bi me-2 bi-tablet"></i>
+                        Tablet
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
+                        <i class="bi me-2 bi-laptop"></i>
+                        Laptop
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
+                        <i class="bi me-2 bi-display"></i>
+                        Màn hình
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
+                        <i class="bi me-2 bi-gear"></i>
+                        Phụ kiện
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
+                        <i class="bi me-2 bi-house"></i>
+                        Đồ gia dụng
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container user-profile-container py-2">
+            <div class="row border rounded-3 px-4 py-2 ">
+                <div class="col-md-5">
+                    <h2>Thông tin tài khoản</h2>
+                        <p>Tên đăng nhập: <span id="id">---</span></p>
+                        <p>Họ và tên:<span id="name">---</span></p>
+                        <p>Email:<span id="email">---</span></p>
+                        <p>Điện thoại:<span id="phone">---</span></p>
+                        <p>Địa chỉ:<span id="address">---</span></p>
+                        <!-- Modal đổi mật khẩu -->
+                        <button
+                            type="button"
+                            class="btn btn-secondary btn-md"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalId"
+                        >
+                            Đổi mật khẩu
+                        </button>
+                        
+                        <!-- Modal Body -->
+                        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                        <div
+                            class="modal fade"
+                            id="modalId"
+                            tabindex="-1"
+                            data-bs-backdrop="static"
+                            data-bs-keyboard="false"
+                            
+                            role="dialog"
+                            aria-labelledby="modalTitleId"
+                            aria-hidden="true"
+                        >
+                            <div
+                                class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+                                role="document"
+                            >
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalTitleId">
+                                            Đổi mật khẩu
+                                        </h5>
+                                        <button
+                                            type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close"
+                                        ></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="">
+                                            <label for="">Nhập mật khẩu mới:</label>
+                                            <input type="password" name="" id="" placeholder="nhập mật khẩu mới" required >
+                                            <label for="">Xác nhận mật khẩu:</label>
+                                            <input type="password" name="" id="" placeholder="xác nhận mật khẩu" required >
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                            data-bs-dismiss="modal"
+                                        >
+                                            Đóng
+                                        </button>
+                                        <button type="button" class="btn btn-danger text-white">Lưu</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal cập nhật thông tin -->
+                        <button
+                            type="button"
+                            class="btn btn-danger btn-md text-white"
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalId2"
+                        >
+                            Cập nhật thông tin
+                        </button>
+                        
+                        <!-- Modal Body -->
+                        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+                        <div
+                            class="modal fade"
+                            id="modalId2"
+                            tabindex="-1"
+                            data-bs-backdrop="static"
+                            data-bs-keyboard="false"
+                            
+                            role="dialog"
+                            aria-labelledby="modalTitleId"
+                            aria-hidden="true"
+                        >
+                            <div
+                                class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md"
+                                role="document"
+                            >
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalTitleId">
+                                            Cập nhật thông tin
+                                        </h5>
+                                        <button
+                                            type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close"
+                                        ></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="">
+                                            <label for="">Tên đăng nhập:</label>
+                                            <input type="text" name="" id="" placeholder="Tên đăng nhập" required>
+                                            <label for="">Họ và tên</label>
+                                            <input type="text" name="" id="" placeholder="Họ và tên" required>
+                                            <label for="">Email:</label>
+                                            <input type="email" name="" id="" placeholder="Email" required>
+                                            <label for="">Điện thoại:</label>
+                                            <input type="number" placeholder="Điện thoại" required>
+                                            <label for="">Địa chỉ:</label>
+                                            <input type="text" name="" id="" placeholder="địa chỉ" required>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                            data-bs-dismiss="modal"
+                                        >
+                                            Đóng
+                                        </button>
+                                        <button type="button" class="btn btn-danger text-white">Lưu</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Optional: Place to the bottom of scripts -->
+                        <script>
+                            const myModal = new bootstrap.Modal(
+                                document.getElementById("modalId"),
+                                options,
+                            );
+                        </script>
+                        <br>
+                        <!--btn đăng xuất-->
+                        <a
+                            name=""
+                            id=""
+                            class="btn btn-danger text-white my-2 "
+                            href="#"
+                            role="button"
+                            >Đăng xuất</a
+                        >
+                        
+                </div>
+                <div class="col-md-7">
+                    <h2>Lịch sử mua hàng</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Hình ảnh</th>
+                                <th>Tên SP + Mã SP</th>
+                                <th>Trạng thái</th>
+                                <th>Ngày đặt</th>
+                                <th>Hình thức</th>
+                                <th>Địa chỉ</th>
+                                <th>Hình thức thanh toán</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+
+            </div>
+            <a
+                name=""
+                id=""
+                class="btn btn-danger text-white my-2"
+                href="../views/index.html"
+                role="button"
+                >Quay lại</a
+            >
+            
+        </div>
+        
+    </main>
+
+    <footer class="footer mt-5">
+        <div class="footer-top py-5">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-5 col-md-6">
+                        <a class="navbar-brand fw-bold text-white fs-3 d-block mb-3" href="/">E-STORE</a>
+                        <p class="text-white-50">
+                            Chuyên cung cấp các thiết bị công nghệ chính hãng với mức giá cạnh tranh nhất thị trường.
+                            Chất lượng tạo nên niềm tin.
+                        </p>
+                        <div class="social-links d-flex gap-3 mt-4">
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white fw-bold mb-4">Hỗ trợ khách hàng</h5>
+                        <ul class="list-unstyled footer-links">
+                            <li><a href="#">Chính sách bảo hành</a></li>
+                            <li><a href="#">Chính sách đổi trả</a></li>
+                            <li><a href="#">Phương thức thanh toán</a></li>
+                            <li><a href="#">Giao hàng & Lắp đặt</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="text-white fw-bold mb-4">Thông tin liên hệ</h5>
+                        <ul class="list-unstyled text-white-50 footer-contact">
+                            <li class="mb-3">
+                                <i class="bi bi-geo-alt-fill me-2 text-third"></i>
+                                123 Đường ABC, Quận 1, TP. Hồ Chí Minh
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-telephone-fill me-2 text-third"></i>
+                                1900 1234
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-envelope-fill me-2 text-third"></i>
+                                contact@estore.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom py-3">
+            <div class="container text-center">
+                <p class="text-white-50 mb-0 small">
+                    © 2026 E-STORE. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const headerBottom = document.querySelector('.header-bottom');
+
+            if (menuToggle && headerBottom) {
+                menuToggle.addEventListener('click', function () {
+                    headerBottom.classList.toggle('show-menu');
+                });
+            }
+        });
+    </script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script type="module" src="/assets/client/js/main.js"></script>
+</body>
+
+</html>

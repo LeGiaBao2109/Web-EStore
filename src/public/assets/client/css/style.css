@@ -346,3 +346,8 @@ img {
 .next-btn {
     right: -10px;
 }
+
+.user-profile-container input{
+    width: 100%;
+    border-radius: 10px;
+}
