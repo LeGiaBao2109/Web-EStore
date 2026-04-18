@@ -32,7 +32,8 @@
                     <a class="icon-link bg-white rounded-circle align-items-center justify-content-center" href="#">
                         <i class="bi bi-cart fs-5 d-flex"></i>
                     </a>
-                    <a class="icon-link bg-white rounded-circle align-items-center justify-content-center" href="../views/user-profile.html">
+                    <a class="icon-link bg-white rounded-circle align-items-center justify-content-center"
+                        href="../views/user-profile.html">
                         <i class="bi bi-person fs-5 d-flex"></i>
                     </a>
                 </div>
@@ -83,195 +84,115 @@
         </div>
     </nav>
 
-    <main>
-        <div class="container user-profile-container py-2">
-            <div class="row border rounded-3 px-4 py-2 ">
-                <div class="col-md-5">
-                    <h2>Thông tin tài khoản</h2>
-                        <p>Tên đăng nhập: <span id="id">---</span></p>
-                        <p>Họ và tên:<span id="name">---</span></p>
-                        <p>Email:<span id="email">---</span></p>
-                        <p>Điện thoại:<span id="phone">---</span></p>
-                        <p>Địa chỉ:<span id="address">---</span></p>
-                        <!-- Modal đổi mật khẩu -->
-                        <button
-                            type="button"
-                            class="btn btn-secondary btn-md"
-                            data-bs-toggle="modal"
-                            data-bs-target="#modalId"
-                        >
-                            Đổi mật khẩu
-                        </button>
-                        
-                        <!-- Modal Body -->
-                        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-                        <div
-                            class="modal fade"
-                            id="modalId"
-                            tabindex="-1"
-                            data-bs-backdrop="static"
-                            data-bs-keyboard="false"
-                            
-                            role="dialog"
-                            aria-labelledby="modalTitleId"
-                            aria-hidden="true"
-                        >
-                            <div
-                                class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
-                                role="document"
-                            >
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modalTitleId">
-                                            Đổi mật khẩu
-                                        </h5>
-                                        <button
-                                            type="button"
-                                            class="btn-close"
-                                            data-bs-dismiss="modal"
-                                            aria-label="Close"
-                                        ></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="">
-                                            <label for="">Nhập mật khẩu mới:</label>
-                                            <input type="password" name="" id="" placeholder="nhập mật khẩu mới" required >
-                                            <label for="">Xác nhận mật khẩu:</label>
-                                            <input type="password" name="" id="" placeholder="xác nhận mật khẩu" required >
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button
-                                            type="button"
-                                            class="btn btn-secondary"
-                                            data-bs-dismiss="modal"
-                                        >
-                                            Đóng
-                                        </button>
-                                        <button type="button" class="btn btn-danger text-white">Lưu</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Modal cập nhật thông tin -->
-                        <button
-                            type="button"
-                            class="btn btn-danger btn-md text-white"
-                            data-bs-toggle="modal"
-                            data-bs-target="#modalId2"
-                        >
-                            Cập nhật thông tin
-                        </button>
-                        
-                        <!-- Modal Body -->
-                        <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-                        <div
-                            class="modal fade"
-                            id="modalId2"
-                            tabindex="-1"
-                            data-bs-backdrop="static"
-                            data-bs-keyboard="false"
-                            
-                            role="dialog"
-                            aria-labelledby="modalTitleId"
-                            aria-hidden="true"
-                        >
-                            <div
-                                class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-md"
-                                role="document"
-                            >
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="modalTitleId">
-                                            Cập nhật thông tin
-                                        </h5>
-                                        <button
-                                            type="button"
-                                            class="btn-close"
-                                            data-bs-dismiss="modal"
-                                            aria-label="Close"
-                                        ></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="">
-                                            <label for="">Tên đăng nhập:</label>
-                                            <input type="text" name="" id="" placeholder="Tên đăng nhập" required>
-                                            <label for="">Họ và tên</label>
-                                            <input type="text" name="" id="" placeholder="Họ và tên" required>
-                                            <label for="">Email:</label>
-                                            <input type="email" name="" id="" placeholder="Email" required>
-                                            <label for="">Điện thoại:</label>
-                                            <input type="number" placeholder="Điện thoại" required>
-                                            <label for="">Địa chỉ:</label>
-                                            <input type="text" name="" id="" placeholder="địa chỉ" required>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button
-                                            type="button"
-                                            class="btn btn-secondary"
-                                            data-bs-dismiss="modal"
-                                        >
-                                            Đóng
-                                        </button>
-                                        <button type="button" class="btn btn-danger text-white">Lưu</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Optional: Place to the bottom of scripts -->
-                        <script>
-                            const myModal = new bootstrap.Modal(
-                                document.getElementById("modalId"),
-                                options,
-                            );
-                        </script>
-                        <br>
-                        <!--btn đăng xuất-->
-                        <a
-                            name=""
-                            id=""
-                            class="btn btn-danger text-white my-2 "
-                            href="#"
-                            role="button"
-                            >Đăng xuất</a
-                        >
-                        
-                </div>
-                <div class="col-md-7">
-                    <h2>Lịch sử mua hàng</h2>
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Hình ảnh</th>
-                                <th>Tên SP + Mã SP</th>
-                                <th>Trạng thái</th>
-                                <th>Ngày đặt</th>
-                                <th>Hình thức</th>
-                                <th>Địa chỉ</th>
-                                <th>Hình thức thanh toán</th>
-                                <th>Thao tác</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-
+    <section class="user-profile py-4 bg-light">
+        <div class="container">
+            <div class="d-lg-none mb-3">
+                <a href="/" class="text-danger text-decoration-none small fw-bold">
+                    <i class="bi bi-chevron-left"></i> Quay lại trang chủ
+                </a>
             </div>
-            <a
-                name=""
-                id=""
-                class="btn btn-danger text-white my-2"
-                href="../views/index.html"
-                role="button"
-                >Quay lại</a
-            >
-            
+
+            <div class="row g-4">
+                <div class="col-12 col-lg-4">
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                        <div class="card-header bg-danger py-4 text-center border-0">
+                            <div class="avatar-wrapper position-relative d-inline-block">
+                                <div class="bg-white text-danger rounded-circle d-flex align-items-center justify-content-center shadow"
+                                    style="width: 90px; height: 90px; font-size: 2.5rem;">
+                                    <i class="bi bi-person-badge"></i>
+                                </div>
+                            </div>
+                            <h5 class="text-white fw-bold mt-3 mb-0" id="display-name">Lê Gia Bảo</h5>
+                            <small class="text-white-50">Thành viên từ 2026</small>
+                        </div>
+
+                        <div class="card-body p-4">
+                            <div class="user-details-list">
+                                <div class="detail-item mb-3">
+                                    <label class="text-muted small fw-bold text-uppercase">Tên đăng nhập</label>
+                                    <p class="mb-0 text-dark fw-medium" id="u-username">giabao_dev</p>
+                                </div>
+                                <div class="detail-item mb-3">
+                                    <label class="text-muted small fw-bold text-uppercase">Email</label>
+                                    <p class="mb-0 text-dark fw-medium" id="u-email">legiabao@iuh.edu.vn</p>
+                                </div>
+                                <div class="detail-item mb-3">
+                                    <label class="text-muted small fw-bold text-uppercase">Số điện thoại</label>
+                                    <p class="mb-0 text-dark fw-medium" id="u-phone">0358356268</p>
+                                </div>
+                                <div class="detail-item mb-4">
+                                    <label class="text-muted small fw-bold text-uppercase">Địa chỉ giao hàng</label>
+                                    <p class="mb-0 text-dark small" id="u-address">12 đường Mẹ Thiên Tích, P.11, Q.5,
+                                        TP.HCM</p>
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-danger rounded-3 py-2 fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#modalUpdate">
+                                    <i class="bi bi-pencil-square me-2"></i> Cập nhật hồ sơ
+                                </button>
+                                <button class="btn btn-outline-dark rounded-3 py-2 fw-bold" data-bs-toggle="modal"
+                                    data-bs-target="#modalPass">
+                                    <i class="bi bi-key me-2"></i> Đổi mật khẩu
+                                </button>
+                                <button class="btn btn-link text-muted mt-2 fw-bold text-decoration-none"
+                                    id="btnLogout">
+                                    <i class="bi bi-box-arrow-right me-2"></i> Đăng xuất
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                    <div class="card border-0 shadow-sm rounded-4 p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h4 class="fw-bold mb-0">Lịch sử đơn hàng</h4>
+                            <span class="badge bg-danger rounded-pill px-3">2 đơn hàng</span>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle" style="min-width: 800px;">
+                                <thead class="bg-light">
+                                    <tr>
+                                        <th class="py-3 border-0 small text-muted">STT</th>
+                                        <th class="py-3 border-0 small text-muted">SẢN PHẨM</th>
+                                        <th class="py-3 border-0 small text-muted">TRẠNG THÁI</th>
+                                        <th class="py-3 border-0 small text-muted">NGÀY ĐẶT</th>
+                                        <th class="py-3 border-0 small text-muted">TỔNG TIỀN</th>
+                                        <th class="py-3 border-0 small text-muted text-center">THAO TÁC</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://via.placeholder.com/45" class="rounded border me-2">
+                                                <div>
+                                                    <div class="fw-bold small">iPhone 13 Pro</div>
+                                                    <div class="text-muted" style="font-size: 10px;">Mã: IP13P-BLUE
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><span class="badge status-shipping-tag">Đang giao</span></td>
+                                        <td class="small">18/04/2026</td>
+                                        <td class="fw-bold text-danger">25.000.000 đ</td>
+                                        <td class="text-center">
+                                            <a href="/order-detail"
+                                                class="btn btn-sm btn-light border rounded-pill px-3">Chi tiết</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-    </main>
+    </section>
 
     <footer class="footer mt-5">
         <div class="footer-top py-5">

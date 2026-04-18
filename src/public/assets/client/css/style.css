@@ -347,7 +347,34 @@ img {
     right: -10px;
 }
 
-.user-profile-container input{
+.user-profile-container input {
     width: 100%;
     border-radius: 10px;
+}
+
+.status-shipping-tag {
+    background-color: #fff3cd;
+    color: #856404;
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+
+.table-responsive::-webkit-scrollbar {
+    height: 4px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #dc3545;
+    border-radius: 10px;
+}
+
+.user-profile .card {
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 991.98px) {
+    .user-profile .card-header {
+        padding: 2rem 1rem !important;
+    }
 }
