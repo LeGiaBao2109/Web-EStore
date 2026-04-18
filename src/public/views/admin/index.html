@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-STORE | Admin Panel</title>
+    <link rel="stylesheet" href="/assets/admin/css/style.css">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        .admin-nav .nav-link {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 5px;
+            border-radius: 8px;
+        }
+
+        .admin-nav .nav-link.active {
+            background-color: #dc3545 !important;
+            color: #fff;
+        }
+
+        .admin-nav .nav-link:hover:not(.active) {
+            background-color: #f8f9fa;
+        }
+
+        /* Hiệu ứng khi hover vào các thẻ thống kê */
+        .stat-card {
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <section class="admin py-5">
+        <div class="container-fluid px-4">
+            <div class="row">
+                <div class="col-lg-3 col-xl-2">
+                    <div class="card border-0 shadow-sm p-3 sticky-top" style="top: 20px;">
+                        <div class="text-center py-3 border-bottom mb-3">
+                            <h6 class="fw-bold mb-0">Lê Gia Bảo</h6>
+                            <small class="text-muted">Quản trị viên</small>
+                        </div>
+
+                        <div class="nav flex-column nav-pills admin-nav" id="v-pills-tab" role="tablist">
+                            <button class="nav-link active text-start" id="tab-home" data-bs-toggle="pill"
+                                data-bs-target="#content-home" type="button">
+                                <i class="bi bi-speedometer2 me-2"></i> Tổng quan
+                            </button>
+                            <button class="nav-link text-start" id="tab-products" data-bs-toggle="pill"
+                                data-bs-target="#content-products" type="button">
+                                <i class="bi bi-box-seam me-2"></i> Sản phẩm
+                            </button>
+                            <button class="nav-link text-start" id="tab-orders" data-bs-toggle="pill"
+                                data-bs-target="#content-orders" type="button">
+                                <i class="bi bi-cart-check me-2"></i> Đơn hàng
+                            </button>
+                            <button class="nav-link text-start" id="tab-customers" data-bs-toggle="pill"
+                                data-bs-target="#content-customers" type="button">
+                                <i class="bi bi-people me-2"></i> Khách hàng
+                            </button>
+                            <hr>
+                            <a href="/logout" class="nav-link text-danger text-start">
+                                <i class="bi bi-box-arrow-right me-2"></i> Đăng xuất
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9 col-xl-10">
+                    <div class="tab-content shadow-sm bg-white p-4 rounded-4" id="v-pills-tabContent"
+                        style="min-height: 80vh;">
+
+                        <div class="tab-pane fade show active" id="content-home" role="tabpanel">
+
+                            <div
+                                class="d-flex flex-wrap justify-content-between align-items-center border-bottom pb-3 mb-4 gap-3">
+                                <h4 class="fw-bold mb-0">Tổng quan hệ thống</h4>
+
+                                <div class="d-flex align-items-center gap-2 bg-light p-2 rounded-4 shadow-sm">
+                                    <div class="input-group input-group-sm">
+                                        <span
+                                            class="input-group-text bg-transparent border-0 text-muted small">Từ</span>
+                                        <input type="date" id="globalDateFrom"
+                                            class="form-control border-0 bg-transparent shadow-none" value="2026-04-01">
+                                    </div>
+                                    <div class="vr my-2"></div>
+                                    <div class="input-group input-group-sm">
+                                        <span
+                                            class="input-group-text bg-transparent border-0 text-muted small">Đến</span>
+                                        <input type="date" id="globalDateTo"
+                                            class="form-control border-0 bg-transparent shadow-none" value="2026-04-18">
+                                    </div>
+                                    <button id="btnGlobalFilter" class="btn btn-dark btn-sm rounded-3 px-4">
+                                        <i class="bi bi-filter me-1"></i> Áp dụng
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="container-fluid p-0">
+                                <div class="row g-3 mb-4">
+                                    <div class="col-6 col-lg-3">
+                                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white stat-card">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="bg-primary-subtle text-primary rounded-2 p-2 me-3">
+                                                    <i class="bi bi-currency-dollar fs-4"></i>
+                                                </div>
+                                                <small class="text-muted fw-bold small text-uppercase">Doanh thu</small>
+                                            </div>
+                                            <h4 class="fw-bold mb-0" id="stat-revenue">1.250M</h4>
+                                            <small class="text-success small"><i class="bi bi-arrow-up"></i> 12%</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-3">
+                                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white stat-card">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="bg-success-subtle text-success rounded-2 p-2 me-3">
+                                                    <i class="bi bi-box-seam fs-4"></i>
+                                                </div>
+                                                <small class="text-muted fw-bold small text-uppercase">Tồn kho</small>
+                                            </div>
+                                            <h4 class="fw-bold mb-0" id="stat-stock">842</h4>
+                                            <small class="text-muted small">Cập nhật lúc này</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-3">
+                                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white stat-card">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="bg-warning-subtle text-warning rounded-2 p-2 me-3">
+                                                    <i class="bi bi-cart-plus fs-4"></i>
+                                                </div>
+                                                <small class="text-muted fw-bold small text-uppercase">Đơn mới</small>
+                                            </div>
+                                            <h4 class="fw-bold mb-0" id="stat-orders">45</h4>
+                                            <small class="text-danger small">Trong khoảng lọc</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 col-lg-3">
+                                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white stat-card">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="bg-danger-subtle text-danger rounded-2 p-2 me-3">
+                                                    <i class="bi bi-graph-up-arrow fs-4"></i>
+                                                </div>
+                                                <small class="text-muted fw-bold small text-uppercase">Lợi nhuận</small>
+                                            </div>
+                                            <h4 class="fw-bold mb-0" id="stat-profit">315M</h4>
+                                            <small class="text-success small"><i class="bi bi-arrow-up"></i> 5%</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-12 col-xl-8">
+                                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                                            <div class="mb-4">
+                                                <h6 class="fw-bold mb-0">Doanh thu</h6>
+                                                <small class="text-muted small" id="chartRangeLabel">Từ 01/04/2026 đến
+                                                    18/04/2026</small>
+                                            </div>
+                                            <div style="height: 350px;">
+                                                <canvas id="revenueChart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-xl-4">
+                                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-4">
+                                            <h6 class="fw-bold mb-4">Tỷ trọng Dòng sản phẩm</h6>
+                                            <div style="height: 250px;">
+                                                <canvas id="categoryChart"></canvas>
+                                            </div>
+                                        </div>
+
+                                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+                                            <h6 class="fw-bold mb-4">Top bán chạy</h6>
+                                            <div class="top-products-list" id="topProductsContainer">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="bg-light rounded-3 p-2 me-3"
+                                                        style="width: 45px; height: 45px;">
+                                                        <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
+                                                            alt="iPhone" class="img-fluid rounded-2">
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h6 class="small fw-bold mb-0">iPhone 15 Pro Max</h6>
+                                                        <small class="text-muted"
+                                                            style="font-size: 0.7rem;">Apple</small>
+                                                    </div>
+                                                    <div class="text-end">
+                                                        <span class="fw-bold text-dark small">120</span>
+                                                        <div class="text-muted" style="font-size: 0.65rem;">Đã bán</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="bg-light rounded-3 p-2 me-3"
+                                                        style="width: 45px; height: 45px;">
+                                                        <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
+                                                            alt="iPhone 13" class="img-fluid rounded-2">
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h6 class="small fw-bold mb-0">iPhone 13 White</h6>
+                                                        <small class="text-muted"
+                                                            style="font-size: 0.7rem;">Apple</small>
+                                                    </div>
+                                                    <div class="text-end">
+                                                        <span class="fw-bold text-dark small">85</span>
+                                                        <div class="text-muted" style="font-size: 0.65rem;">Đã bán</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-light rounded-3 p-2 me-3"
+                                                        style="width: 45px; height: 45px;">
+                                                        <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
+                                                            alt="Macbook" class="img-fluid rounded-2">
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <h6 class="small fw-bold mb-0">Macbook Pro M3</h6>
+                                                        <small class="text-muted"
+                                                            style="font-size: 0.7rem;">Laptop</small>
+                                                    </div>
+                                                    <div class="text-end">
+                                                        <span class="fw-bold text-dark small">62</span>
+                                                        <div class="text-muted" style="font-size: 0.65rem;">Đã bán</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="content-products" role="tabpanel">
+                            <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
+                                <h4 class="fw-bold mb-0">Quản lý sản phẩm</h4>
+                                <button class="btn btn-danger rounded-3" data-bs-toggle="modal"
+                                    data-bs-target="#modalProduct">
+                                    <i class="bi bi-plus-lg me-1"></i> Thêm sản phẩm mới
+                                </button>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle border-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="border-0">Sản phẩm</th>
+                                            <th class="border-0 text-center">Thương hiệu</th>
+                                            <th class="border-0 text-center">Giá hiện tại</th>
+                                            <th class="border-0 text-center">Tồn kho</th>
+                                            <th class="border-0 text-center">Trạng thái</th>
+                                            <th class="border-0 text-end">Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="productTableBody">
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <img src="https://vcdn-soha.vnecdn.net/2023/09/13/iphone-15-pro-max-1694553250.jpg"
+                                                        class="rounded-3 me-3"
+                                                        style="width: 45px; height: 45px; object-fit: cover;">
+                                                    <div>
+                                                        <h6 class="mb-0 fw-bold">iPhone 15 Pro Max</h6>
+                                                        <small class="text-muted">ID: PRO-001</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">Apple</td>
+                                            <td class="text-center fw-bold text-danger">34.500.000đ</td>
+                                            <td class="text-center">
+                                                <span class="badge bg-light text-dark border">42 chiếc</span>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="badge bg-success-subtle text-success">Active</span>
+                                            </td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-light border-0"
+                                                    onclick="viewProductDetail('PRO-001')" data-bs-toggle="modal"
+                                                    data-bs-target="#modalProductDetail">
+                                                    <i class="bi bi-pencil-square"></i> Sửa/Chi tiết
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modalProductDetail" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-xl modal-dialog-centered">
+                                <div class="modal-content border-0 shadow rounded-4">
+                                    <div class="modal-header border-bottom-0 p-4">
+                                        <h5 class="fw-bold mb-0">Cấu hình sản phẩm: <span id="detailProductName">iPhone
+                                                15 Pro Max</span></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body p-4 pt-0">
+                                        <ul class="nav nav-tabs border-0 mb-4 bg-light p-1 rounded-3" role="tablist">
+                                            <li class="nav-item flex-fill">
+                                                <button class="nav-link active border-0 w-100 rounded-3"
+                                                    data-bs-toggle="tab" data-bs-target="#subtab-info">Thông tin
+                                                    chính</button>
+                                            </li>
+                                            <li class="nav-item flex-fill">
+                                                <button class="nav-link border-0 w-100 rounded-3" data-bs-toggle="tab"
+                                                    data-bs-target="#subtab-price">Quản lý Giá (Lịch sử)</button>
+                                            </li>
+                                            <li class="nav-item flex-fill">
+                                                <button class="nav-link border-0 w-100 rounded-3" data-bs-toggle="tab"
+                                                    data-bs-target="#subtab-warehouse">Nhật ký Kho</button>
+                                            </li>
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade show active" id="subtab-info">
+                                                <div class="row g-3">
+                                                    <div class="col-md-6">
+                                                        <label class="form-label small fw-bold">Tên sản phẩm</label>
+                                                        <input type="text"
+                                                            class="form-control border-0 bg-light shadow-none"
+                                                            value="iPhone 15 Pro Max">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="form-label small fw-bold">Thương hiệu</label>
+                                                        <input type="text"
+                                                            class="form-control border-0 bg-light shadow-none"
+                                                            value="Apple">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="form-label small fw-bold">Trạng thái</label>
+                                                        <select class="form-select border-0 bg-light shadow-none">
+                                                            <option value="active">Active</option>
+                                                            <option value="inactive">Inactive</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <label class="form-label small fw-bold">Mô tả sản phẩm</label>
+                                                        <textarea class="form-control border-0 bg-light shadow-none"
+                                                            rows="3">Cấu hình khủng nhất 2024...</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="subtab-price">
+                                                <div class="bg-light p-3 rounded-4 mb-4">
+                                                    <div class="row g-2">
+                                                        <div class="col-md-5">
+                                                            <input type="number" id="newPrice"
+                                                                class="form-control border-0 shadow-none"
+                                                                placeholder="Nhập giá mới">
+                                                        </div>
+                                                        <div class="col-md-5">
+                                                            <input type="text" id="priceReason"
+                                                                class="form-control border-0 shadow-none"
+                                                                placeholder="Lý do thay đổi (VD: Flash Sale)">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <button class="btn btn-danger w-100 rounded-3"
+                                                                onclick="updatePrice()">Cập nhật</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="table-responsive" style="max-height: 300px;">
+                                                    <table class="table table-sm align-middle">
+                                                        <thead>
+                                                            <tr class="small text-muted">
+                                                                <th>Ngày tạo</th>
+                                                                <th>Giá</th>
+                                                                <th>Lý do</th>
+                                                                <th>Người thực hiện</th>
+                                                                <th class="text-center">Hiện tại</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="priceHistoryBody">
+                                                            <tr>
+                                                                <td class="small">18/04/2026</td>
+                                                                <td class="fw-bold">34.500.000đ</td>
+                                                                <td>Giá gốc từ hãng</td>
+                                                                <td class="small">Gia Bảo (ADM-001)</td>
+                                                                <td class="text-center text-success"><i
+                                                                        class="bi bi-check-circle-fill"></i></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="subtab-warehouse">
+                                                <div class="bg-light p-3 rounded-4 mb-4">
+                                                    <div class="row g-2">
+                                                        <div class="col-md-3">
+                                                            <select id="logType"
+                                                                class="form-select border-0 shadow-none">
+                                                                <option value="import">Nhập kho (+)</option>
+                                                                <option value="export">Xuất kho (-)</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <input type="number" id="logQty"
+                                                                class="form-control border-0 shadow-none"
+                                                                placeholder="Số lượng">
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" id="logNote"
+                                                                class="form-control border-0 shadow-none"
+                                                                placeholder="Ghi chú (VD: Nhập hàng mới)">
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <button class="btn btn-dark w-100 rounded-3"
+                                                                onclick="updateWarehouse()">Ghi sổ</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="table-responsive" style="max-height: 300px;">
+                                                    <table class="table table-sm align-middle">
+                                                        <thead>
+                                                            <tr class="small text-muted">
+                                                                <th>Ngày</th>
+                                                                <th>Loại</th>
+                                                                <th>Số lượng</th>
+                                                                <th>Ghi chú</th>
+                                                                <th>Admin</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="warehouseHistoryBody">
+                                                            <tr>
+                                                                <td class="small">18/04/2026</td>
+                                                                <td><span class="badge bg-success">Nhập kho</span></td>
+                                                                <td class="fw-bold text-success">+50</td>
+                                                                <td>Hàng về đợt 1</td>
+                                                                <td class="small">Gia Bảo</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="content-orders" role="tabpanel">
+                            <h4 class="fw-bold border-bottom pb-3 mb-4">Quản lý đơn hàng</h4>
+                        </div>
+
+                        <div class="tab-pane fade" id="content-customers" role="tabpanel">
+                            <h4 class="fw-bold border-bottom pb-3 mb-4">Danh sách khách hàng</h4>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script type="module" src="/assets/admin/js/script.js"></script>
+</body>
+
+</html>
