@@ -15,73 +15,9 @@
         <div
             class="header-top__container container container-fluid py-1 flex-lg-row flex-column align-items-center justify-content-between">
             <a class="navbar-brand fw-bold text-white fs-3 d-lg-flex text-center" href="/">E-STORE</a>
-
-            <form class="d-flex w-100 me-3" role="search">
-                <input class="form-control mx-2 rounded-pill shadow-none" type="search" placeholder="Bạn đang tìm gì à?"
-                    aria-label="Search" />
-                <button class="btn header-top__btn--search text-white px-4 fw-bold text-uppercase border-0"
-                    type="submit">Search</button>
-            </form>
-            <div class="icons d-flex align-items-center justify-content-center gap-3">
-                <button class="btn text-white border-0 fs-2 p-0 me-2" id="menuToggle">
-                    <i class="bi bi-list"></i>
-                </button>
-
-                <div class="sub-icons d-flex align-items-center justify-content-between gap-3">
-                    <a class="icon-link bg-white rounded-circle align-items-center justify-content-center" href="#">
-                        <i class="bi bi-cart fs-5 d-flex"></i>
-                    </a>
-                    <a class="icon-link bg-white rounded-circle align-items-center justify-content-center"
-                        href="../views/user-profile.html">
-                        <i class="bi bi-person fs-5 d-flex"></i>
-                    </a>
-                </div>
-            </div>
+        </div>
         </div>
     </header>
-
-    <nav class="header-bottom">
-        <div class="header-bottom__container container container-fluid py-1">
-            <ul class="nav d-flex align-items-center justify-content-between gap-3">
-                <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold active" href="#">
-                        <i class="bi me-2 bi-phone"></i>
-                        Điện thoại
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
-                        <i class="bi me-2 bi-tablet"></i>
-                        Tablet
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
-                        <i class="bi me-2 bi-laptop"></i>
-                        Laptop
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
-                        <i class="bi me-2 bi-display"></i>
-                        Màn hình
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
-                        <i class="bi me-2 bi-gear"></i>
-                        Phụ kiện
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
-                        <i class="bi me-2 bi-house"></i>
-                        Đồ gia dụng
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
 
     <section class="user-profile py-4 bg-light">
         <div class="container">
@@ -168,7 +104,6 @@
                                         <td>1</td>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <img src="https://via.placeholder.com/45" class="rounded border me-2">
                                                 <div>
                                                     <div class="fw-bold small">iPhone 13 Pro</div>
                                                     <div class="text-muted" style="font-size: 10px;">Mã: IP13P-BLUE
@@ -180,7 +115,7 @@
                                         <td class="small">18/04/2026</td>
                                         <td class="fw-bold text-danger">25.000.000 đ</td>
                                         <td class="text-center">
-                                            <a href="/order-detail"
+                                            <a href="/user-profile/order-history"
                                                 class="btn btn-sm btn-light border rounded-pill px-3">Chi tiết</a>
                                         </td>
                                     </tr>
@@ -251,6 +186,59 @@
         </div>
     </footer>
 
+    <div class="modal fade" id="modalUpdate" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="fw-bold">Cập nhật hồ sơ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="editName" value="Lê Gia Bảo">
+                        <label>Họ và tên</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="editEmail" value="legiabao@iuh.edu.vn">
+                        <label>Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="editPhone" value="0358356268">
+                        <label>Số điện thoại</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea class="form-control" id="editAddress"
+                            style="height: 100px">12 đường Mẹ Thiên Tích, Q.5</textarea>
+                        <label>Địa chỉ</label>
+                    </div>
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger rounded-pill px-4 fw-bold shadow-sm">Lưu thay
+                        đổi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalPass" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="fw-bold">Đổi mật khẩu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="password" class="form-control mb-2" placeholder="Mật khẩu hiện tại">
+                    <input type="password" class="form-control mb-2" placeholder="Mật khẩu mới">
+                    <input type="password" class="form-control" placeholder="Xác nhận mật khẩu mới">
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-danger w-100 rounded-pill fw-bold">Xác nhận đổi</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

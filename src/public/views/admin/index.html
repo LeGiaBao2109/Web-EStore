@@ -291,6 +291,52 @@
                             </div>
                         </div>
 
+                        <div class="modal fade" id="modalProduct" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content border-0 shadow-lg rounded-4">
+                                    <div class="modal-header border-0 p-4 pb-0">
+                                        <h5 class="fw-bold mb-0">Thêm sản phẩm mới</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body p-4">
+                                        <div class="row g-3">
+                                            <div class="col-md-12">
+                                                <label class="small fw-bold mb-1">Tên sản phẩm</label>
+                                                <input type="text" class="form-control border-0 bg-light shadow-none"
+                                                    placeholder="Nhập tên sản phẩm...">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="small fw-bold mb-1">Giá bán ban đầu</label>
+                                                <input type="number" class="form-control border-0 bg-light shadow-none"
+                                                    placeholder="VD: 20000000">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="small fw-bold mb-1">Số lượng nhập kho</label>
+                                                <input type="number" class="form-control border-0 bg-light shadow-none"
+                                                    placeholder="VD: 50">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="small fw-bold mb-1">Thương hiệu</label>
+                                                <input type="text" class="form-control border-0 bg-light shadow-none"
+                                                    placeholder="Apple, Samsung...">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="small fw-bold mb-1">Danh mục</label>
+                                                <select class="form-select border-0 bg-light shadow-none">
+                                                    <option value="phone">Điện thoại</option>
+                                                    <option value="laptop">Laptop</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer border-0 p-4 pt-0">
+                                        <button class="btn btn-danger w-100 rounded-3 py-2 fw-bold">Lưu và khởi tạo
+                                            kho</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="modal fade" id="modalProductDetail" tabindex="-1" aria-hidden="true">
                             <div class="modal-dialog modal-xl modal-dialog-centered">
                                 <div class="modal-content border-0 shadow rounded-4">
@@ -304,45 +350,99 @@
                                         <ul class="nav nav-tabs border-0 mb-4 bg-light p-1 rounded-3" role="tablist">
                                             <li class="nav-item flex-fill">
                                                 <button class="nav-link active border-0 w-100 rounded-3"
-                                                    data-bs-toggle="tab" data-bs-target="#subtab-info">Thông tin
-                                                    chính</button>
+                                                    data-bs-toggle="tab" data-bs-target="#subtab-info">
+                                                    <i class="bi bi-info-circle me-1"></i> Thông tin chính
+                                                </button>
                                             </li>
                                             <li class="nav-item flex-fill">
                                                 <button class="nav-link border-0 w-100 rounded-3" data-bs-toggle="tab"
-                                                    data-bs-target="#subtab-price">Quản lý Giá (Lịch sử)</button>
+                                                    data-bs-target="#subtab-price">
+                                                    <i class="bi bi-tags me-1"></i> Quản lý Giá
+                                                </button>
                                             </li>
                                             <li class="nav-item flex-fill">
                                                 <button class="nav-link border-0 w-100 rounded-3" data-bs-toggle="tab"
-                                                    data-bs-target="#subtab-warehouse">Nhật ký Kho</button>
+                                                    data-bs-target="#subtab-warehouse">
+                                                    <i class="bi bi-house-gear me-1"></i> Nhật ký Kho
+                                                </button>
                                             </li>
                                         </ul>
 
                                         <div class="tab-content">
                                             <div class="tab-pane fade show active" id="subtab-info">
                                                 <div class="row g-3">
-                                                    <div class="col-md-6">
-                                                        <label class="form-label small fw-bold">Tên sản phẩm</label>
-                                                        <input type="text"
-                                                            class="form-control border-0 bg-light shadow-none"
-                                                            value="iPhone 15 Pro Max">
+                                                    <div class="col-md-8">
+                                                        <div class="row g-3">
+                                                            <div class="col-md-12">
+                                                                <label class="form-label small fw-bold">Tên sản
+                                                                    phẩm</label>
+                                                                <input type="text"
+                                                                    class="form-control border-0 bg-light shadow-none"
+                                                                    value="iPhone 15 Pro Max">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="form-label small fw-bold">Thương
+                                                                    hiệu</label>
+                                                                <input type="text"
+                                                                    class="form-control border-0 bg-light shadow-none"
+                                                                    value="Apple">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label class="form-label small fw-bold">Trạng
+                                                                    thái</label>
+                                                                <select
+                                                                    class="form-select border-0 bg-light shadow-none">
+                                                                    <option value="active">Active</option>
+                                                                    <option value="inactive">Inactive</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <label class="form-label small fw-bold">Mô tả sản
+                                                                    phẩm</label>
+                                                                <textarea
+                                                                    class="form-control border-0 bg-light shadow-none"
+                                                                    rows="4">Cấu hình khủng nhất 2024...</textarea>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <label class="form-label small fw-bold">Thương hiệu</label>
-                                                        <input type="text"
-                                                            class="form-control border-0 bg-light shadow-none"
-                                                            value="Apple">
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <label class="form-label small fw-bold">Trạng thái</label>
-                                                        <select class="form-select border-0 bg-light shadow-none">
-                                                            <option value="active">Active</option>
-                                                            <option value="inactive">Inactive</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <label class="form-label small fw-bold">Mô tả sản phẩm</label>
-                                                        <textarea class="form-control border-0 bg-light shadow-none"
-                                                            rows="3">Cấu hình khủng nhất 2024...</textarea>
+
+                                                    <div class="col-md-4">
+                                                        <div
+                                                            class="card border-0 bg-light rounded-4 p-3 mb-3 text-center text-md-start">
+                                                            <label class="text-muted small fw-bold mb-2">GIÁ HIỆN
+                                                                TẠI</label>
+                                                            <div
+                                                                class="d-flex align-items-center justify-content-between">
+                                                                <h5 class="fw-bold text-danger mb-0">34.500.000đ</h5>
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-outline-danger border-0 p-0"
+                                                                    onclick="switchSubTab('price')">
+                                                                    <i class="bi bi-arrow-right-circle fs-5"></i>
+                                                                </button>
+                                                            </div>
+                                                            <small class="text-muted mt-1"
+                                                                style="font-size: 0.7rem;">Sửa tại tab Quản lý
+                                                                giá</small>
+                                                        </div>
+
+                                                        <div
+                                                            class="card border-0 bg-light rounded-4 p-3 text-center text-md-start">
+                                                            <label class="text-muted small fw-bold mb-2">TỒN KHO THỰC
+                                                                TẾ</label>
+                                                            <div
+                                                                class="d-flex align-items-center justify-content-between">
+                                                                <h5 class="fw-bold text-dark mb-0">42 <small
+                                                                        class="fw-normal">chiếc</small></h5>
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-outline-dark border-0 p-0"
+                                                                    onclick="switchSubTab('warehouse')">
+                                                                    <i class="bi bi-arrow-right-circle fs-5"></i>
+                                                                </button>
+                                                            </div>
+                                                            <small class="text-muted mt-1"
+                                                                style="font-size: 0.7rem;">Cập nhật tại tab Nhật ký
+                                                                kho</small>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -358,7 +458,7 @@
                                                         <div class="col-md-5">
                                                             <input type="text" id="priceReason"
                                                                 class="form-control border-0 shadow-none"
-                                                                placeholder="Lý do thay đổi (VD: Flash Sale)">
+                                                                placeholder="Lý do (VD: Sale 30/4)">
                                                         </div>
                                                         <div class="col-md-2">
                                                             <button class="btn btn-danger w-100 rounded-3"
@@ -373,7 +473,7 @@
                                                                 <th>Ngày tạo</th>
                                                                 <th>Giá</th>
                                                                 <th>Lý do</th>
-                                                                <th>Người thực hiện</th>
+                                                                <th>Admin</th>
                                                                 <th class="text-center">Hiện tại</th>
                                                             </tr>
                                                         </thead>
@@ -381,8 +481,8 @@
                                                             <tr>
                                                                 <td class="small">18/04/2026</td>
                                                                 <td class="fw-bold">34.500.000đ</td>
-                                                                <td>Giá gốc từ hãng</td>
-                                                                <td class="small">Gia Bảo (ADM-001)</td>
+                                                                <td>Giá niêm yết</td>
+                                                                <td class="small">Bảo Lê</td>
                                                                 <td class="text-center text-success"><i
                                                                         class="bi bi-check-circle-fill"></i></td>
                                                             </tr>
@@ -409,7 +509,7 @@
                                                         <div class="col-md-4">
                                                             <input type="text" id="logNote"
                                                                 class="form-control border-0 shadow-none"
-                                                                placeholder="Ghi chú (VD: Nhập hàng mới)">
+                                                                placeholder="Ghi chú...">
                                                         </div>
                                                         <div class="col-md-2">
                                                             <button class="btn btn-dark w-100 rounded-3"
@@ -419,8 +519,8 @@
                                                 </div>
                                                 <div class="table-responsive" style="max-height: 300px;">
                                                     <table class="table table-sm align-middle">
-                                                        <thead>
-                                                            <tr class="small text-muted">
+                                                        <thead class="small text-muted">
+                                                            <tr>
                                                                 <th>Ngày</th>
                                                                 <th>Loại</th>
                                                                 <th>Số lượng</th>
@@ -433,11 +533,205 @@
                                                                 <td class="small">18/04/2026</td>
                                                                 <td><span class="badge bg-success">Nhập kho</span></td>
                                                                 <td class="fw-bold text-success">+50</td>
-                                                                <td>Hàng về đợt 1</td>
-                                                                <td class="small">Gia Bảo</td>
+                                                                <td>Nhập hàng đợt 1</td>
+                                                                <td class="small">Bảo Lê</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer border-0 p-4 pt-0">
+                                        <button class="btn btn-primary rounded-3 px-4">Lưu thay đổi thông tin
+                                            chính</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="content-orders" role="tabpanel">
+                            <div
+                                class="d-flex flex-column flex-md-row justify-content-between align-items-md-center border-bottom pb-3 mb-4 gap-3">
+                                <h4 class="fw-bold mb-0">Quản lý đơn hàng</h4>
+                                <button class="btn btn-outline-dark rounded-3 btn-sm-block" id="btnExportOrder">
+                                    <i class="bi bi-file-earmark-excel me-1"></i> Xuất Excel
+                                </button>
+                            </div>
+
+                            <div class="row g-2 mb-4">
+                                <div class="col-12 col-md-4 col-lg-3">
+                                    <select class="form-select border-0 shadow-sm rounded-3" id="filterOrderStatus">
+                                        <option value="all">Tất cả trạng thái</option>
+                                        <option value="pending">Chờ xác nhận</option>
+                                        <option value="confirmed">Đã xác nhận</option>
+                                        <option value="shipping">Đang giao hàng</option>
+                                        <option value="completed">Đã hoàn thành</option>
+                                        <option value="cancelled">Đã hủy</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 col-md-8 col-lg-6">
+                                    <div class="input-group shadow-sm rounded-3 overflow-hidden">
+                                        <span class="input-group-text bg-white border-0"><i
+                                                class="bi bi-search"></i></span>
+                                        <input type="text" class="form-control border-0"
+                                            placeholder="Tìm mã đơn, khách hàng...">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive d-none d-md-block">
+                                <table class="table table-hover align-middle border-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="border-0">Mã đơn</th>
+                                            <th class="border-0">Khách hàng</th>
+                                            <th class="border-0">Tổng tiền</th>
+                                            <th class="border-0">Trạng thái</th>
+                                            <th class="border-0 text-end">Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="fw-bold">ORD-9921</span></td>
+                                            <td>
+                                                <div class="fw-bold small">Lê Gia Bảo</div>
+                                                <small class="text-muted" style="font-size: 0.75rem;">0358356xxx</small>
+                                            </td>
+                                            <td class="fw-bold text-danger">34.500.000đ</td>
+                                            <td><span class="badge bg-warning-subtle text-warning rounded-pill">Chờ xác
+                                                    nhận</span></td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-light border-0"
+                                                    onclick="viewOrderDetail('ORD-9921')" data-bs-toggle="modal"
+                                                    data-bs-target="#modalOrderDetail">
+                                                    <i class="bi bi-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="d-block d-md-none">
+                                <div
+                                    class="card border-0 shadow-sm rounded-4 p-3 mb-3 border-start border-4 border-warning">
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <div>
+                                            <span class="fw-bold text-dark">#ORD-9921</span>
+                                            <div class="small text-muted">19/04/2026</div>
+                                        </div>
+                                        <span class="badge bg-warning-subtle text-warning">Chờ xác nhận</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="fw-bold">Lê Gia Bảo</div>
+                                        <div class="text-muted small">0358356xxx</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="fw-bold text-danger">34.500.000đ</div>
+                                        <button class="btn btn-sm btn-danger rounded-3 px-3"
+                                            onclick="viewOrderDetail('ORD-9921')" data-bs-toggle="modal"
+                                            data-bs-target="#modalOrderDetail">
+                                            Chi tiết
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="content-customers" role="tabpanel">
+                            <div
+                                class="d-flex flex-column flex-md-row justify-content-between align-items-md-center border-bottom pb-3 mb-4 gap-3">
+                                <h4 class="fw-bold mb-0">Quản lý khách hàng</h4>
+                                <div class="input-group shadow-sm rounded-3 overflow-hidden" style="max-width: 400px;">
+                                    <span class="input-group-text bg-white border-0"><i class="bi bi-search"></i></span>
+                                    <input type="text" class="form-control border-0"
+                                        placeholder="Tìm tên, email, số điện thoại...">
+                                </div>
+                            </div>
+
+                            <div class="table-responsive d-none d-md-block">
+                                <table class="table table-hover align-middle border-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="border-0">Khách hàng</th>
+                                            <th class="border-0">Liên hệ</th>
+                                            <th class="border-0">Địa chỉ</th>
+                                            <th class="border-0 text-center">Trạng thái</th>
+                                            <th class="border-0 text-end">Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center me-3"
+                                                        style="width: 40px; height: 40px; font-weight: bold;">
+                                                        B
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0 fw-bold">Lê Gia Bảo</h6>
+                                                        <small class="text-muted">@giabao2109</small>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="small"><i class="bi bi-envelope me-1"></i> bao.le@gmail.com
+                                                </div>
+                                                <div class="small"><i class="bi bi-phone me-1"></i> 0358356xxx</div>
+                                            </td>
+                                            <td>
+                                                <div class="text-truncate small" style="max-width: 200px;">12 Nguyễn Văn
+                                                    Bảo, Gò Vấp...</div>
+                                            </td>
+                                            <td class="text-center">
+                                                <span class="badge bg-success-subtle text-success rounded-pill">Đang
+                                                    hoạt động</span>
+                                            </td>
+                                            <td class="text-end">
+                                                <button class="btn btn-sm btn-light border-0 me-2"
+                                                    onclick="editCustomer('USER_ID_1')">
+                                                    <i class="bi bi-pencil-square text-primary"></i> Sửa
+                                                </button>
+                                                <button class="btn btn-sm btn-light border-0"
+                                                    onclick="toggleUserStatus('USER_ID_1', 'active')">
+                                                    <i class="bi bi-lock text-danger"></i> Khóa
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="row g-3 d-md-none">
+                                <div class="col-12">
+                                    <div class="card border-0 shadow-sm rounded-4 p-3">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center me-3"
+                                                style="width: 45px; height: 45px; font-weight: bold;">B</div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="mb-0 fw-bold">Lê Gia Bảo</h6>
+                                                <span class="badge bg-success-subtle text-success small">Active</span>
+                                            </div>
+                                            <button class="btn btn-sm btn-light" onclick="toggleUserStatus('...')"><i
+                                                    class="bi bi-three-dots-vertical"></i></button>
+                                        </div>
+                                        <div class="small mb-2">
+                                            <p class="mb-1"><i class="bi bi-envelope me-2"></i>bao.le@gmail.com</p>
+                                            <p class="mb-1"><i class="bi bi-phone me-2"></i>0358356xxx</p>
+                                            <p class="mb-0"><i class="bi bi-geo-alt me-2"></i>Gò Vấp, TP.HCM</p>
+                                        </div>
+                                        <div class="d-block d-md-none">
+                                            <div class="card border-0 shadow-sm rounded-4 p-3 mb-3">
+                                                <div class="d-flex gap-2 mt-3">
+                                                    <button class="btn btn-outline-primary btn-sm rounded-3 flex-fill"
+                                                        onclick="editCustomer('USER_ID_1')">
+                                                        <i class="bi bi-pencil-square me-1"></i> Chỉnh sửa
+                                                    </button>
+                                                    <button class="btn btn-outline-danger btn-sm rounded-3 flex-fill"
+                                                        onclick="toggleUserStatus('USER_ID_1', 'active')">
+                                                        <i class="bi bi-lock me-1"></i> Khóa
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -446,19 +740,235 @@
                             </div>
                         </div>
 
-                        <div class="tab-pane fade" id="content-orders" role="tabpanel">
-                            <h4 class="fw-bold border-bottom pb-3 mb-4">Quản lý đơn hàng</h4>
-                        </div>
-
-                        <div class="tab-pane fade" id="content-customers" role="tabpanel">
-                            <h4 class="fw-bold border-bottom pb-3 mb-4">Danh sách khách hàng</h4>
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="modal fade" id="modalOrderDetail" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 p-4 pb-0">
+                    <h5 class="fw-bold mb-0">Chi tiết đơn hàng: <span id="detailOrderId">ORD-9921</span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-3 text-uppercase small text-muted">Thông tin khách hàng</h6>
+                            <div class="card bg-light border-0 rounded-4 p-3">
+                                <p class="mb-1 fw-bold">Người nhận: <span class="fw-normal">Lê Gia Bảo</span></p>
+                                <p class="mb-1 fw-bold">SĐT: <span class="fw-normal">0358356268</span></p>
+                                <p class="mb-0 fw-bold">Địa chỉ: <span class="fw-normal small">12 đường Mẹ Thiên Tích,
+                                        P.11, Q.5, TP.HCM</span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold mb-3 text-uppercase small text-muted">Trạng thái xử lý</h6>
+                            <label class="small fw-bold">Cập nhật trạng thái:</label>
+                            <select class="form-select border-0 bg-light shadow-none mb-3" id="updateStatusSelect">
+                                <option value="pending">Chờ xác nhận</option>
+                                <option value="confirmed">Xác nhận đơn hàng</option>
+                                <option value="shipping">Bắt đầu giao hàng</option>
+                                <option value="completed">Đã hoàn thành</option>
+                                <option value="cancelled">Hủy đơn hàng</option>
+                            </select>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="paymentStatusSwitch" checked>
+                                <label class="form-check-label small" for="paymentStatusSwitch">Đã thanh toán
+                                    (Paid)</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <h6 class="fw-bold mb-3 text-uppercase small text-muted">Sản phẩm trong đơn</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm align-middle">
+                                    <thead class="bg-light">
+                                        <tr class="small">
+                                            <th>Sản phẩm</th>
+                                            <th class="text-center">Số lượng</th>
+                                            <th class="text-end">Đơn giá</th>
+                                            <th class="text-end">Thành tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="fw-bold small">iPhone 15 Pro Max</div>
+                                                <div class="text-muted" style="font-size: 10px;">SKU: IP15PM-BLUE</div>
+                                            </td>
+                                            <td class="text-center">1</td>
+                                            <td class="text-end">34.500.000đ</td>
+                                            <td class="text-end fw-bold">34.500.000đ</td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="3" class="text-end fw-bold">TỔNG CỘNG:</td>
+                                            <td class="text-end fw-bold text-danger fs-5">34.500.000đ</td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 p-4 pt-0">
+                    <button class="btn btn-outline-dark rounded-pill px-4 fw-bold me-auto" onclick="printOrderBill()">
+                        <i class="bi bi-printer me-2"></i> In hóa đơn
+                    </button>
+
+                    <button class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Đóng</button>
+                    <button class="btn btn-danger rounded-pill px-4 fw-bold shadow-sm" onclick="saveOrderChange()">Lưu
+                        thay đổi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="print-section" class="d-none">
+        <div class="p-5" style="color: #000; line-height: 1.5;">
+            <div class="row align-items-center mb-4">
+                <div class="col-4">
+                    <h2 class="fw-bold text-danger m-0">E-STORE</h2>
+                    <small class="text-muted">Technology & Electronics</small>
+                </div>
+                <div class="col-8 text-end">
+                    <h4 class="fw-bold m-0 text-uppercase">Hóa đơn giá trị gia tăng (VAT)</h4>
+                    <p class="m-0 small">Ngày: <span id="p-date">19/04/2026</span></p>
+                    <p class="m-0 small">Số hóa đơn: <strong id="p-order-id">ORD-9921</strong></p>
+                </div>
+            </div>
+
+            <hr style="border-top: 2px solid #333;">
+
+            <div class="row mb-4 small">
+                <div class="col-6">
+                    <h6 class="fw-bold text-uppercase border-bottom pb-1">Đơn vị bán hàng</h6>
+                    <p class="mb-1"><strong>CÔNG TY TNHH E-STORE VIỆT NAM</strong></p>
+                    <p class="mb-1">Địa chỉ: 12 Nguyễn Văn Bảo, P.4, Gò Vấp, TP.HCM</p>
+                    <p class="mb-1">Điện thoại: 028 1234 5678</p>
+                    <p class="mb-1">Mã số thuế: 0316172372</p>
+                </div>
+                <div class="col-6">
+                    <h6 class="fw-bold text-uppercase border-bottom pb-1">Người mua hàng</h6>
+                    <p class="mb-1"><strong>Họ tên:</strong> <span id="p-name">Lê Gia Bảo</span></p>
+                    <p class="mb-1"><strong>Điện thoại:</strong> <span id="p-phone">0358356268</span></p>
+                    <p class="mb-1"><strong>Địa chỉ:</strong> <span id="p-address">12 đường Mẹ Thiên Tích, Q.5,
+                            TP.HCM</span></p>
+                    <p class="mb-1"><strong>Hình thức thanh toán:</strong> <span id="p-method">Chuyển khoản</span></p>
+                </div>
+            </div>
+
+            <table class="table table-bordered border-dark small">
+                <thead class="text-center align-middle bg-light">
+                    <tr>
+                        <th width="5%">STT</th>
+                        <th width="40%">Tên hàng hóa, dịch vụ</th>
+                        <th width="10%">ĐVT</th>
+                        <th width="10%">SL</th>
+                        <th width="15%">Đơn giá (Chưa thuế)</th>
+                        <th width="20%">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody id="p-items-body">
+                    <tr class="text-center">
+                        <td>1</td>
+                        <td class="text-start">iPhone 15 Pro Max 256GB - Blue Titanium</td>
+                        <td>Cái</td>
+                        <td>1</td>
+                        <td>31.363.636</td>
+                        <td>31.363.636</td>
+                    </tr>
+                </tbody>
+                <tfoot class="fw-bold">
+                    <tr>
+                        <td colspan="5" class="text-end">Cộng tiền hàng (Total amount):</td>
+                        <td class="text-end" id="p-subtotal">31.363.636đ</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-end">Thuế suất GTGT (10%):</td>
+                        <td class="text-end" id="p-tax">3.136.364đ</td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-end text-uppercase text-danger">Tổng cộng tiền thanh toán:</td>
+                        <td class="text-end text-danger fs-5" id="p-total">34.500.000đ</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="row mt-5 text-center">
+                <div class="col-6">
+                    <p class="fw-bold mb-5">Người mua hàng</p>
+                    <i class="small text-muted">(Ký, ghi rõ họ tên)</i>
+                </div>
+                <div class="col-6 position-relative">
+                    <p class="fw-bold mb-5">Người bán hàng</p>
+                    <div
+                        style="border: 2px solid red; color: red; padding: 5px; width: 220px; margin: 0 auto; transform: rotate(-5deg); font-weight: bold; border-radius: 5px;">
+                        Signature Valid<br>
+                        <small>CÔNG TY TNHH E-STORE</small><br>
+                        <small>Ngày ký: 19/04/2026</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalEditCustomer" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 p-4 pb-0">
+                    <h5 class="fw-bold mb-0">Sửa thông tin khách hàng</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="formEditCustomer">
+                        <input type="hidden" id="editUserId">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label class="small fw-bold mb-1">Họ và tên</label>
+                                <input type="text" id="editCustomerName"
+                                    class="form-control border-0 bg-light shadow-none"
+                                    placeholder="Nhập tên khách hàng...">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small fw-bold mb-1">Số điện thoại</label>
+                                <input type="text" id="editCustomerPhone"
+                                    class="form-control border-0 bg-light shadow-none">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small fw-bold mb-1">Trạng thái</label>
+                                <select id="editCustomerStatus" class="form-select border-0 bg-light shadow-none">
+                                    <option value="active">Đang hoạt động (Active)</option>
+                                    <option value="block">Khóa tài khoản (Block)</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="small fw-bold mb-1">Địa chỉ giao hàng</label>
+                                <textarea id="editCustomerAddress" class="form-control border-0 bg-light shadow-none"
+                                    rows="3"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="p-3 bg-warning-subtle rounded-3 small">
+                                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                    Email và Username là định danh duy nhất (Unique), không được phép chỉnh sửa để bảo
+                                    mật hệ thống.
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 p-4 pt-0">
+                    <button class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Hủy</button>
+                    <button class="btn btn-danger rounded-pill px-4 fw-bold shadow-sm" onclick="saveCustomerEdit()">Cập
+                        nhật ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

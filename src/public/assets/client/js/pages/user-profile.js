@@ -1,6 +1,4 @@
 export const initUserProfile = () => {
-    console.log("User Profile System: Active");
-
     const currentUser = {
         name: "Lê Gia Bảo",
         username: "giabao_dev",
@@ -9,40 +7,30 @@ export const initUserProfile = () => {
         address: "12 đường Mẹ Thiên Tích, P.11, Q.5, TP.HCM"
     };
 
-    renderUserData(currentUser);
+    $('#display-name').text(currentUser.name);
+    $('#u-username').text(currentUser.username);
+    $('#u-email').text(currentUser.email);
+    $('#u-phone').text(currentUser.phone);
+    $('#u-address').text(currentUser.address);
 
-    const btnLogout = document.getElementById('btnLogout');
-    if (btnLogout) {
-        btnLogout.addEventListener('click', handleLogout);
-    }
+    $('#btnLogout').on('click', function(e) {
+        e.preventDefault();
+        if (confirm("Bảo có chắc muốn đăng xuất không?")) {
+            window.location.href = "/";
+        }
+    });
 
-    const btnSaveInfo = document.querySelector('#modalUpdate .btn-danger');
-    if (btnSaveInfo) {
-        btnSaveInfo.addEventListener('click', () => {
-            alert("Thông tin đã được cập nhật thành công!");
-        });
-    }
-};
+    $('#modalUpdate .btn-danger').on('click', function() {
+        const updatedData = {
+            name: $('#editName').val(),
+            email: $('#editEmail').val(),
+            phone: $('#editPhone').val(),
+            address: $('#editAddress').val()
+        };
 
-const renderUserData = (user) => {
-    const fields = {
-        'display-name': user.name,
-        'u-username': user.username,
-        'u-email': user.email,
-        'u-phone': user.phone,
-        'u-address': user.address
-    };
-
-    for (const [id, value] of Object.entries(fields)) {
-        const el = document.getElementById(id);
-        if (el) el.innerText = value;
-    }
-};
-
-const handleLogout = (e) => {
-    e.preventDefault();
-    if (confirm("Bảo có chắc muốn đăng xuất không?")) {
-        console.log("Clearing session...");
-        window.location.href = "/login.html";
-    }
+        console.log("Dữ liệu cập nhật:", updatedData);
+        alert("Thông tin cá nhân đã được lưu!");
+        
+        $('#modalUpdate').modal('hide');
+    });
 };

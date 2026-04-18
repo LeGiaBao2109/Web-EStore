@@ -3,17 +3,18 @@ import { initProductSlider } from './utils/slider.js';
 import { initProductList } from './pages/product-list.js';
 import { initAuth } from './pages/auth.js';
 import { initOrderHistory } from './pages/order-history.js';
+import { initUserProfile } from './pages/user-profile.js';
 
 $(function () {
     initNavbar();
 
     const productSlider = initProductSlider('productSlider');
     if (productSlider) {
-        $('.next-btn').on('click', (e) => {
+        $('.next-btn').on('click', function(e) {
             e.preventDefault();
             productSlider.slide(1);
         });
-        $('.prev-btn').on('click', (e) => {
+        $('.prev-btn').on('click', function(e) {
             e.preventDefault();
             productSlider.slide(-1);
         });
@@ -22,5 +23,7 @@ $(function () {
     initProductList();
     initAuth();
     initOrderHistory();
+    initUserProfile();
+
     console.log("E-Store System Ready!");
 });
