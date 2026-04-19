@@ -6,8 +6,24 @@ exports.findProductList = async (filters = {}) => {
             status: "active"
         };
 
+        // Filter by search keyword (for search functionality)
+        if (filters.searchKeyword) {
+            findQuery.name = { $regex: filters.searchKeyword, $options: 'i' };
+        }
+
+        // Filter by product name (alternative)
+        if (filters.name) {
+            findQuery.name = filters.name;
+        }
+
+        // Filter by category
+        if (filters.category) {
+            findQuery.category = filters.category;
+        }
+
+        // Filter by brand (case-insensitive)
         if (filters.brand) {
-            findQuery.brand = new RegExp(filters.brand, 'i');
+            findQuery.brand = { $regex: filters.brand, $options: 'i' };
         }
 
         let pipeline = [{
@@ -33,8 +49,8 @@ exports.findProductList = async (filters = {}) => {
             }
         ];
 
+        // Xử lý Price Ranges (Giữ nguyên logic của Bảo)
         const rawRanges = filters['priceRanges[]'] || filters.priceRanges;
-
         if (rawRanges) {
             const rangeArray = Array.isArray(rawRanges) ? rawRanges : [rawRanges];
             const priceConditions = rangeArray.map(range => {
@@ -66,6 +82,7 @@ exports.findProductList = async (filters = {}) => {
             }
         }
 
+        // Xử lý Sort (Giữ nguyên logic của Bảo)
         if (filters.sortPrice && filters.sortPrice !== 'default') {
             pipeline.push({
                 $sort: {

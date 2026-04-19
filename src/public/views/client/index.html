@@ -20,8 +20,8 @@
             class="header-top__container container container-fluid py-1 flex-lg-row flex-column align-items-center justify-content-between">
             <a class="navbar-brand fw-bold text-white fs-3 d-lg-flex text-center" href="/">E-STORE</a>
 
-            <form class="d-flex w-100 me-3" role="search">
-                <input class="form-control mx-2 rounded-pill shadow-none" type="search" placeholder="Bạn đang tìm gì à?"
+            <form class="d-flex w-100 me-3" role="search" id="search-form">
+                <input class="form-control mx-2 rounded-pill shadow-none" id="search-input" type="search"  name="keyword" placeholder="Bạn đang tìm gì à?"
                     aria-label="Search" />
                 <button class="btn header-top__btn--search text-white px-4 fw-bold text-uppercase border-0"
                     type="submit">Search</button>
@@ -35,7 +35,8 @@
                     <a class="icon-link bg-white rounded-circle align-items-center justify-content-center" href="#">
                         <i class="bi bi-cart fs-5 d-flex"></i>
                     </a>
-                    <a class="icon-link bg-white rounded-circle align-items-center justify-content-center" href="../views/user-profile.html">
+                    <a class="icon-link bg-white rounded-circle align-items-center justify-content-center"
+                        href="../views/user-profile.html">
                         <i class="bi bi-person fs-5 d-flex"></i>
                     </a>
                 </div>
@@ -47,39 +48,33 @@
         <div class="header-bottom__container container container-fluid py-1">
             <ul class="nav d-flex align-items-center justify-content-between gap-3">
                 <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold active" href="#">
-                        <i class="bi me-2 bi-phone"></i>
-                        Điện thoại
+                    <a class="nav-link text-white text-uppercase fw-bold" href="/products/dien-thoai">
+                        <i class="bi me-2 bi-phone"></i>Điện thoại
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
-                        <i class="bi me-2 bi-tablet"></i>
-                        Tablet
+                    <a class="nav-link text-white text-uppercase fw-bold" href="/products/tablet">
+                        <i class="bi me-2 bi-tablet"></i>Tablet
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
-                        <i class="bi me-2 bi-laptop"></i>
-                        Laptop
+                    <a class="nav-link text-white text-uppercase fw-bold" href="/products/laptop">
+                        <i class="bi me-2 bi-laptop"></i>Laptop
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
-                        <i class="bi me-2 bi-display"></i>
-                        Màn hình
+                    <a class="nav-link text-white text-uppercase fw-bold" href="/products/man-hinh">
+                        <i class="bi me-2 bi-display"></i>Màn hình
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
-                        <i class="bi me-2 bi-gear"></i>
-                        Phụ kiện
+                    <a class="nav-link text-white text-uppercase fw-bold" href="/products/phu-kien">
+                        <i class="bi me-2 bi-gear"></i>Phụ kiện
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white text-uppercase fw-bold" href="#">
-                        <i class="bi me-2 bi-house"></i>
-                        Đồ gia dụng
+                    <a class="nav-link text-white text-uppercase fw-bold" href="/products/gia-dung">
+                        <i class="bi me-2 bi-house"></i>Đồ gia dụng
                     </a>
                 </li>
             </ul>
@@ -128,23 +123,22 @@
     <div class="section product-list py-5">
         <div class="container position-relative">
             <h2 class="text-center fw-bold mb-4">DANH SÁCH SẢN PHẨM</h2>
-            <button class="slider-btn prev-btn shadow-sm"><i
-                    class="bi bi-chevron-left"></i></button>
-            <button class="slider-btn next-btn shadow-sm"><i
-                    class="bi bi-chevron-right"></i></button>
+            <button class="slider-btn prev-btn shadow-sm"><i class="bi bi-chevron-left"></i></button>
+            <button class="slider-btn next-btn shadow-sm"><i class="bi bi-chevron-right"></i></button>
             <div class="product-wrapper d-flex flex-nowrap gap-3" id="productSlider">
                 <div class="product-item">
                     <div class="card h-100 border-0 shadow-sm">
                         <a href="/">
                             <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
-                            class="card-img-top" alt="...">
+                                class="card-img-top" alt="...">
                         </a>
                         <div class="card-body text-center">
                             <h6 class="fw-bold">iPhone 15 Pro</h6>
                             <p class="text-danger fw-bold">25.990.000đ</p>
                             <div class="buttons d-flex gap-2">
                                 <a href="" class="btn btn-outline-danger btn-sm rounded-pill w-100 p-2">Mua Ngay</a>
-                                <a href="" class="btn btn-danger btn-sm rounded-circle p-2 text-center"><i class="bi bi-cart"></i></a>
+                                <a href="" class="btn btn-danger btn-sm rounded-circle p-2 text-center"><i
+                                        class="bi bi-cart"></i></a>
                             </div>
                         </div>
                     </div>
@@ -211,10 +205,10 @@
         </div>
     </footer>
 
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script type="module" src="/assets/client/js/script.js"></script>
 </body>
 

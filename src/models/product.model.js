@@ -15,6 +15,7 @@ const productSchema = new mongoose.Schema({
         publicId: String
     },
     brand: String,
+    category: String,
     description: String,
     priceId: {
         type: mongoose.Schema.Types.ObjectId,
