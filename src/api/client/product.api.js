@@ -25,21 +25,31 @@ router.get('/get-products', async (req, res) => {
     }
 });
 
-    router.get('/search', async (req, res) => {
+router.get('/search', async (req, res) => {
     try {
         const keyword = req.query.keyword;
         if (!keyword) {
-            return res.json({ success: true, data: [] });
+            return res.json({
+                success: true,
+                data: []
+            });
         }
 
-        // Pass keyword string, service will create RegExp
         const products = await serviceProduct.findProductList({
             searchKeyword: keyword,
             status: "active"
         });
 
-        res.json({ success: true, data: products });
+        res.json({
+            success: true,
+            data: products
+        });
     } catch (error) {
-        res.status(500).json({ success: false, error: error.message });
+        res.status(500).json({
+            success: false,
+            error: error.message
+        });
     }
-});module.exports = router;
+});
+
+module.exports = router;
