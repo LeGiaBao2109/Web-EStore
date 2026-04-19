@@ -75,20 +75,22 @@
                     <div class="price-filter p-4 border rounded shadow-sm bg-light">
                         <h5 class="fw-bold mb-3">Lọc theo giá</h5>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="price1">
+                            <input class="form-check-input filter-price" type="checkbox" value="0-5000000" id="price1">
                             <label class="form-check-label" for="price1">Dưới 5 triệu</label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="price2">
+                            <input class="form-check-input filter-price" type="checkbox" value="5000000-10000000"
+                                id="price2">
                             <label class="form-check-label" for="price2">5 - 10 triệu</label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="price3">
+                            <input class="form-check-input filter-price" type="checkbox" value="10000000-15000000"
+                                id="price3">
                             <label class="form-check-label" for="price3">10 - 15 triệu</label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="price4">
-                            <label class="form-check-label" for="price4">trên 15 triệu</label>
+                            <input class="form-check-input filter-price" type="checkbox" value="15000000" id="price4">
+                            <label class="form-check-label" for="price4">Trên 15 triệu</label>
                         </div>
                     </div>
                 </div>
@@ -109,7 +111,7 @@
                         </div>
                     </div>
                     <div class="row g-4" id="product-container">
-                        <div class="col-6 col-md-4 col-lg-3 product-item">
+                        <!-- <div class="col-6 col-md-4 col-lg-3 product-item">
                             <div class="card h-100 border-0 shadow-sm">
                                 <a href="/">
                                     <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
@@ -207,7 +209,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="text-center mt-5">
                         <button id="loadMoreBtn" class="btn btn-danger px-5 py-2 fw-bold shadow">XEM THÊM SẢN
@@ -277,10 +279,10 @@
         </div>
     </footer>
 
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script type="module" src="/assets/client/js/script.js"></script>
 </body>
 
