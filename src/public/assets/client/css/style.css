@@ -580,3 +580,17 @@ img {
         padding: 2rem 1rem !important;
     }
 }
+
+@media (min-width: 768px) {
+    .table thead {
+        display: table-header-group !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .table thead {
+        display: none !important;
+    }
+}

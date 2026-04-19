@@ -1,3 +1,5 @@
+const serviceProduct = require("../../services/client/product.service");
+const modelProduct = require("../../models/product.model");
 const path = require('path');
 
 module.exports.list = (req, res) => {

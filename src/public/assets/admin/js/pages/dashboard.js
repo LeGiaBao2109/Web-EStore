@@ -5,8 +5,7 @@ export function initDashboardCharts() {
     renderRevenueChart();
     renderCategoryChart();
 
-    // Sự kiện khi nhấn nút Lọc
-    $('#btnFilterDate').on('click', function() {
+    $('#btnFilterDate').on('click', function () {
         renderRevenueChart();
     });
 }
@@ -16,28 +15,23 @@ function renderRevenueChart() {
     if (!$canvas.length) return;
 
     const ctx = $canvas[0].getContext('2d');
-    
-    // Lấy giá trị từ input date
-    const dateFrom = $('#dateFrom').val(); // YYYY-MM-DD
+
+    const dateFrom = $('#dateFrom').val();
     const dateTo = $('#dateTo').val();
 
-    // Logic xử lý nhãn (Labels) Ngày/Tháng/Năm
-    // Ở bản demo, mình sẽ tạo ra các mốc ngày dựa trên khoảng chọn
     let labels = [];
     if (dateFrom && dateTo) {
-        // Hàm chuyển YYYY-MM-DD sang DD/MM/YYYY
         const formatDate = (dateStr) => {
             const [y, m, d] = dateStr.split('-');
             return `${d}/${m}/${y}`;
         };
-        
-        // Demo: Hiển thị mốc bắt đầu, mốc giữa và mốc kết thúc
+
         labels = [formatDate(dateFrom), '15/04/2026', formatDate(dateTo)];
     } else {
         labels = ['01/04/2026', '15/04/2026', '30/04/2026'];
     }
 
-    const revenueData = [45, 80, 120]; // Mock data
+    const revenueData = [45, 80, 120];
     const profitData = [15, 25, 40];
 
     if (revenueChart) revenueChart.destroy();
@@ -65,12 +59,24 @@ function renderRevenueChart() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: { legend: { position: 'top', align: 'end' } },
+            plugins: {
+                legend: {
+                    position: 'top',
+                    align: 'end'
+                }
+            },
             scales: {
                 x: {
-                    ticks: { maxRotation: 0 } // Vì khoảng ngày linh hoạt nên để nằm ngang cho đẹp
+                    ticks: {
+                        maxRotation: 0
+                    }
                 },
-                y: { beginAtZero: true, ticks: { callback: v => v + 'M' } }
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: v => v + 'M'
+                    }
+                }
             }
         }
     });
@@ -96,7 +102,11 @@ function renderCategoryChart() {
             responsive: true,
             maintainAspectRatio: false,
             cutout: '75%',
-            plugins: { legend: { position: 'bottom' } }
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
         }
     });
 }
