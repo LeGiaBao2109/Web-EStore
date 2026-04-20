@@ -41,6 +41,7 @@
 
     <section class="product-detail py-5">
         <div class="container">
+            <input type="hidden" class="js-product-id">
             <div class="row gy-4">
                 <div class="col-12 col-lg-5">
                     <div class="product__item--detail">
@@ -92,33 +93,6 @@
             </div>
         </div>
     </section>
-
-    <div class="section product-list py-5">
-        <div class="container position-relative">
-            <h2 class="text-center fw-bold mb-4">DANH SÁCH SẢN PHẨM</h2>
-            <button class="slider-btn prev-btn shadow-sm"><i class="bi bi-chevron-left"></i></button>
-            <button class="slider-btn next-btn shadow-sm"><i class="bi bi-chevron-right"></i></button>
-            <div class="product-wrapper d-flex flex-nowrap gap-3" id="productSlider">
-                <div class="product-item">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <a href="/">
-                            <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
-                                class="card-img-top" alt="...">
-                        </a>
-                        <div class="card-body text-center">
-                            <h6 class="fw-bold">iPhone 15 Pro</h6>
-                            <p class="text-danger fw-bold">25.990.000đ</p>
-                            <div class="buttons d-flex gap-2">
-                                <a href="" class="btn btn-outline-danger btn-sm rounded-pill w-100 p-2">Mua Ngay</a>
-                                <a href="" class="btn btn-danger btn-sm rounded-circle p-2 text-center"><i
-                                        class="bi bi-cart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer class="footer mt-5">
         <div class="footer-top py-5">
@@ -178,11 +152,10 @@
         </div>
     </footer>
 
-
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script type="module" src="/assets/client/js/script.js"></script>
 </body>
 

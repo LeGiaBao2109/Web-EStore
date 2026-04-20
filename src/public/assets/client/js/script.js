@@ -2,32 +2,37 @@ import { initNavbar } from './utils/navbar.js';
 import { initProductSlider } from './utils/slider.js';
 import { initProductList, initProductGrid } from './pages/product-list.js';
 import { initProductDetail } from './pages/product-detail.js';
+import { initCartActions } from './pages/cart.js';
 import { initAuth } from './pages/auth.js';
 
 $(async function () {
     initNavbar();
     initAuth();
+    initCartActions();
 
-    const isDataLoaded = await initProductList();
+    const path = window.location.pathname;
 
-    if (isDataLoaded) {
-        const productSlider = initProductSlider('productSlider');
-        if (productSlider) {
-            $('.next-btn').off('click').on('click', function (e) {
-                e.preventDefault();
-                productSlider.slide(1);
-            });
-            $('.prev-btn').off('click').on('click', function (e) {
-                e.preventDefault();
-                productSlider.slide(-1);
-            });
+    if (path === '/' || path === '/index.html') {
+        const isDataLoaded = await initProductList();
+        if (isDataLoaded) {
+            const productSlider = initProductSlider('productSlider');
+            if (productSlider) {
+                $('.next-btn').off('click').on('click', function (e) {
+                    e.preventDefault();
+                    productSlider.slide(1);
+                });
+                $('.prev-btn').off('click').on('click', function (e) {
+                    e.preventDefault();
+                    productSlider.slide(-1);
+                });
+            }
         }
     }
 
-    initProductGrid();
-
-    if (window.location.pathname.includes('/products/')) {
+    if (path.includes('/products/detail/')) {
         initProductDetail();
+    } else if (path.includes('/products/')) {
+        initProductGrid();
     }
 
     $('#search-form').on('submit', function (e) {
@@ -40,10 +45,8 @@ $(async function () {
 
     $.get('/api/auth/me', function (res) {
         if (res.success) {
-            // 1. Tìm và ẩn nút giỏ hàng đứng riêng lẻ kế bên
             $('#auth-header-area').find('a[href="/cart"]').addClass('d-none');
 
-            // 2. Thay thế icon user bằng Dropdown chứa luôn mục Giỏ hàng
             const $userIcon = $('.js-header-user');
             if ($userIcon.length > 0) {
                 const firstName = (res.user.name || "User").split(' ').pop();

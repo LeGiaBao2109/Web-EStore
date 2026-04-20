@@ -13,6 +13,8 @@ export async function initProductDetail() {
             if (res.success && res.data) {
                 const product = res.data;
 
+                $('.js-product-id').val(product._id); 
+
                 $('.js-product-title').each(function() {
                     $(this).text(product.name);
                 });

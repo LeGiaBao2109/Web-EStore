@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Product = require('../../models/product.model');
 
 exports.findProductList = async (filters = {}) => {
@@ -117,6 +118,34 @@ exports.findProductBySlug = async (slug) => {
             },
             {
                 $unwind: "$priceData"
+            }
+        ];
+        const products = await Product.aggregate(pipeline);
+        return products[0] || null;
+    } catch (error) {
+        throw error;
+    }
+};
+
+exports.findProductById = async (id) => {
+    try {
+        const pipeline = [
+            { 
+                $match: { 
+                    _id: new mongoose.Types.ObjectId(id), 
+                    status: "active" 
+                } 
+            },
+            {
+                $lookup: {
+                    from: "prices",
+                    localField: "priceId",
+                    foreignField: "_id",
+                    as: "priceData"
+                }
+            },
+            { 
+                $unwind: "$priceData" 
             }
         ];
         const products = await Product.aggregate(pipeline);
