@@ -12,15 +12,12 @@ exports.findProductList = async (filters = {}) => {
                 $options: 'i'
             };
         }
-
         if (filters.name) {
             findQuery.name = filters.name;
         }
-
         if (filters.category) {
             findQuery.category = filters.category;
         }
-
         if (filters.brand) {
             findQuery.brand = {
                 $regex: filters.brand,
@@ -58,16 +55,12 @@ exports.findProductList = async (filters = {}) => {
                 const parts = range.split('-');
                 const min = Number(parts[0]);
                 const max = parts[1] ? Number(parts[1]) : null;
-
-                if (max) {
-                    return {
-                        "finalPrice": {
-                            $gte: min,
-                            $lte: max
-                        }
-                    };
-                }
-                return {
+                return max ? {
+                    "finalPrice": {
+                        $gte: min,
+                        $lte: max
+                    }
+                } : {
                     "finalPrice": {
                         $gte: min
                     }
@@ -102,7 +95,33 @@ exports.findProductList = async (filters = {}) => {
         }));
 
     } catch (error) {
-        console.error("Lỗi tại Product Service:", error);
+        throw error;
+    }
+};
+
+exports.findProductBySlug = async (slug) => {
+    try {
+        const pipeline = [{
+                $match: {
+                    slug: slug,
+                    status: "active"
+                }
+            },
+            {
+                $lookup: {
+                    from: "prices",
+                    localField: "priceId",
+                    foreignField: "_id",
+                    as: "priceData"
+                }
+            },
+            {
+                $unwind: "$priceData"
+            }
+        ];
+        const products = await Product.aggregate(pipeline);
+        return products[0] || null;
+    } catch (error) {
         throw error;
     }
 };

@@ -52,4 +52,23 @@ router.get('/search', async (req, res) => {
     }
 });
 
+router.get('/detail/:slug', async (req, res) => {
+    try {
+        const slug = req.params.slug;
+        const products = await serviceProduct.findProductList({ name: null });
+        const product = await serviceProduct.findProductBySlug(slug); 
+
+        if (!product) {
+            return res.status(404).json({ success: false, message: "Không tìm thấy sản phẩm" });
+        }
+
+        res.json({
+            success: true,
+            data: product
+        });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 module.exports = router;

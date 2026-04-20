@@ -1,6 +1,7 @@
 import { initNavbar } from './utils/navbar.js';
 import { initProductSlider } from './utils/slider.js';
 import { initProductList, initProductGrid } from './pages/product-list.js';
+import { initProductDetail } from './pages/product-detail.js';
 import { initAuth } from './pages/auth.js';
 
 $(async function () {
@@ -24,6 +25,10 @@ $(async function () {
     }
 
     initProductGrid();
+
+    if (window.location.pathname.includes('/products/')) {
+        initProductDetail();
+    }
 
     $('#search-form').on('submit', function (e) {
         e.preventDefault();
