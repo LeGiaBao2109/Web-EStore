@@ -66,4 +66,18 @@ router.post('/update-quantity', async (req, res) => {
     }
 });
 
+router.delete('/remove', async (req, res) => {
+    try {
+        const userId = req.session.user?.id;
+        const { productId } = req.body;
+        
+        if (!userId) return res.json({ success: false, message: "Chưa đăng nhập" });
+
+        const result = await serviceCart.removeFromCart(userId, productId);
+        res.json(result);
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 module.exports = router;

@@ -1,20 +1,43 @@
-import { formatPrice } from '../../../js/helpers/format.js';
+import {
+    formatPrice
+} from '../../../js/helpers/format.js';
 
 export async function initCartPage() {
     if (!$('.cart').length) return;
 
     loadCart();
 
-    $(document).on('click', '.btn-plus', function() {
+    $(document).on('click', '.btn-plus', function () {
         const input = $(this).siblings('.cart-qty');
         let val = parseInt(input.val()) + 1;
         updateQuantity($(this).closest('.cart-item').data('id'), val);
     });
 
-    $(document).on('click', '.btn-minus', function() {
+    $(document).on('click', '.btn-minus', function () {
         const input = $(this).siblings('.cart-qty');
         let val = parseInt(input.val()) - 1;
         if (val >= 1) updateQuantity($(this).closest('.cart-item').data('id'), val);
+    });
+
+    $(document).on('click', '.btn-remove', function () {
+        const productId = $(this).closest('.cart-item').data('id');
+
+        if (confirm("Xác nhận xóa sản phẩm này khỏi giỏ hàng?")) {
+            $.ajax({
+                url: '/api/cart/remove',
+                type: 'DELETE',
+                data: {
+                    productId
+                },
+                success: function (res) {
+                    if (res.success) {
+                        loadCart();
+                    } else {
+                        alert(res.message || "Không thể xóa sản phẩm");
+                    }
+                }
+            });
+        }
     });
 }
 
@@ -34,10 +57,13 @@ function updateQuantity(productId, quantity) {
     $.ajax({
         url: '/api/cart/update-quantity',
         type: 'POST',
-        data: { productId, quantity },
+        data: {
+            productId,
+            quantity
+        },
         success: function (res) {
             if (res.success) {
-                loadCart(); 
+                loadCart();
             }
         }
     });
