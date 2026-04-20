@@ -6,6 +6,7 @@ import { initCartActions } from './pages/cart.js';
 import { initCartPage } from './pages/cart-page.js';
 import { initPaymentPage } from './pages/payment.js';
 import { initAuth } from './pages/auth.js';
+import { initUserProfile } from './pages/user-profile.js';
 
 $(async function () {
     initNavbar();
@@ -37,12 +38,16 @@ $(async function () {
         initProductGrid();
     }
 
-    if (window.location.pathname.includes('/cart')) {
+    if (path.includes('/cart') && !path.includes('/payment')) {
         initCartPage();
     }
 
-    if (window.location.pathname.includes('/cart/payment')) {
+    if (path.includes('/cart/payment')) {
         initPaymentPage();
+    }
+
+    if (path.includes('/user-profile')) {
+        initUserProfile();
     }
 
     $('#search-form').on('submit', function (e) {
@@ -71,7 +76,6 @@ $(async function () {
                         <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
                             <li><a class="dropdown-item py-2" href="/user-profile"><i class="bi bi-person me-2"></i>Hồ sơ</a></li>
                             <li><a class="dropdown-item py-2" href="/cart"><i class="bi bi-cart me-2"></i>Giỏ hàng của tôi</a></li>
-                            <li class="d-none"><a class="dropdown-item py-2" href="/orders"><i class="bi bi-bag me-2"></i>Đơn hàng</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item py-2 text-danger" href="#" id="btnLogout"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
                         </ul>
