@@ -9,12 +9,13 @@
   <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
 </head>
+
 <body>
   <header class="header-top navbar navbar-expand-lg navbar-light">
     <div
       class="header-top__container container container-fluid py-1 flex-lg-row flex-column align-items-center justify-content-between">
       <a class="navbar-brand fw-bold text-white fs-3 d-lg-flex text-center" href="/">E-STORE</a>
-      </div>
+    </div>
     </div>
   </header>
 
@@ -173,13 +174,16 @@
     </div>
   </footer>
 
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script>
-    $('input[id^="quantity"]').on('input', function () {
-      this.value = this.value.replace(/[^0-9]/g, '');
+    $(document).ready(function () {
+      $(document).on('input', 'input[id^="quantity"]', function () {
+        this.value = this.value.replace(/[^0-9]/g, '');
+      });
     });
   </script>
-  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+
   <script type="module" src="/assets/client/js/script.js"></script>
 </body>
 

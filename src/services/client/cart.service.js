@@ -1,4 +1,9 @@
 const Cart = require("../../models/cart.model");
+const Product = require("../../models/product.model");
+
+module.exports.getCartByUserId = async (userId) => {
+    return await Cart.findOne({ userId: userId }).populate('items.productId');
+};
 
 module.exports.addToCart = async (userId, productData, quantity = 1) => {
     let cart = await Cart.findOne({ userId: userId });
@@ -33,4 +38,19 @@ module.exports.addToCart = async (userId, productData, quantity = 1) => {
 
     await cart.save();
     return { success: true, cartCount: cart.items.length };
+};
+
+module.exports.updateQuantity = async (userId, productId, quantity) => {
+    const cart = await Cart.findOne({ userId: userId });
+    if (!cart) return { success: false };
+
+    const item = cart.items.find(item => item.productId.toString() === productId);
+    if (item) {
+        item.quantity = quantity;
+        cart.totalAmount = cart.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        cart.updatedAt = Date.now();
+        await cart.save();
+        return { success: true };
+    }
+    return { success: false };
 };

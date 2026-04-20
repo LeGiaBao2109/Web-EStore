@@ -3,6 +3,7 @@ import { initProductSlider } from './utils/slider.js';
 import { initProductList, initProductGrid } from './pages/product-list.js';
 import { initProductDetail } from './pages/product-detail.js';
 import { initCartActions } from './pages/cart.js';
+import { initCartPage } from './pages/cart-page.js';
 import { initAuth } from './pages/auth.js';
 
 $(async function () {
@@ -33,6 +34,10 @@ $(async function () {
         initProductDetail();
     } else if (path.includes('/products/')) {
         initProductGrid();
+    }
+
+    if (window.location.pathname.includes('/cart')) {
+        initCartPage();
     }
 
     $('#search-form').on('submit', function (e) {

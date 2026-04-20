@@ -41,4 +41,29 @@ router.post('/add', async (req, res) => {
     }
 });
 
+router.get('/get-cart', async (req, res) => {
+    try {
+        const userId = req.session.user?.id;
+        if (!userId) return res.json({ success: false, message: "Chưa đăng nhập" });
+
+        const cart = await serviceCart.getCartByUserId(userId);
+        res.json({ success: true, data: cart });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+router.post('/update-quantity', async (req, res) => {
+    try {
+        const userId = req.session.user?.id;
+        const { productId, quantity } = req.body;
+        if (!userId) return res.json({ success: false });
+
+        const result = await serviceCart.updateQuantity(userId, productId, parseInt(quantity));
+        res.json(result);
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
 module.exports = router;
