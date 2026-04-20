@@ -1,6 +1,7 @@
 const User = require("../../models/user.model");
 const Order = require("../../models/order.model");
 const OrderItem = require("../../models/orderItem.model");
+const Review = require("../../models/review.model");
 const bcrypt = require("bcrypt");
 
 module.exports.getUserById = async (id) => {
@@ -50,14 +51,20 @@ module.exports.getOrdersByUserId = async (userId) => {
 
 module.exports.getOrderById = async (orderId) => {
     try {
-        const order = await Order.findById(orderId).lean();
+        const order = await Order.findById(orderId)
+            .populate({
+                path: 'userId',
+                select: 'name email phone'
+            })
+            .lean();
+            
         if (order) {
             order.items = await OrderItem.find({
                     orderId: order._id
                 })
                 .populate({
                     path: 'productId',
-                    select: 'name thumbnail price'
+                    select: 'name image thumbnail price'
                 })
                 .lean();
         }
@@ -100,6 +107,26 @@ module.exports.changePassword = async (id, oldPassword, newPassword) => {
         return {
             success: false,
             message: error.message
+        };
+    }
+};
+
+module.exports.addReview = async (userId, productName, content) => {
+    try {
+        const newReview = new Review({
+            userId: userId,
+            productName: productName,
+            comment: content
+        });
+        await newReview.save();
+        return {
+            success: true,
+            message: "Gửi đánh giá thành công!"
+        };
+    } catch (error) {
+        return {
+            success: false,
+            message: "Lỗi lưu đánh giá: " + error.message
         };
     }
 };

@@ -24,56 +24,57 @@ export const initUserProfile = () => {
     };
 
     const loadOrderHistory = () => {
-    $.ajax({
-        url: '/api/user/orders',
-        method: 'GET',
-        success: (res) => {
-            if (res.success && res.orders) {
-                const $tableBody = $('#order-history-table'); 
-                $tableBody.empty();
+        $.ajax({
+            url: '/api/user/orders',
+            method: 'GET',
+            success: (res) => {
+                if (res.success && res.orders) {
+                    const $tableBody = $('#order-history-table'); 
+                    $tableBody.empty();
 
-                if (res.orders.length === 0) {
-                    $tableBody.append('<tr><td colspan="6" class="text-center py-4">Bạn chưa có đơn hàng nào</td></tr>');
-                    return;
-                }
+                    if (res.orders.length === 0) {
+                        $tableBody.append('<tr><td colspan="6" class="text-center py-4">Bạn chưa có đơn hàng nào</td></tr>');
+                        $('.badge.bg-danger.rounded-pill').text(`0 đơn hàng`);
+                        return;
+                    }
 
-                res.orders.forEach((order, index) => {
-                    const statusClass = getStatusClass(order.status);
-                    const orderDate = new Date(order.createdAt).toLocaleDateString('vi-VN');
-                    
-                    const firstItemName = order.items && order.items.length > 0 && order.items[0].productId 
-                                          ? order.items[0].productId.name 
-                                          : 'Sản phẩm không xác định';
+                    res.orders.forEach((order, index) => {
+                        const statusClass = getStatusClass(order.status);
+                        const orderDate = new Date(order.createdAt).toLocaleDateString('vi-VN');
+                        
+                        const firstItemName = order.items && order.items.length > 0 && order.items[0].productId 
+                                              ? order.items[0].productId.name 
+                                              : 'Sản phẩm không xác định';
 
-                    $tableBody.append(`
-                        <tr>
-                            <td>${index + 1}</td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <div class="fw-bold small">${firstItemName}</div>
-                                        <div class="text-muted" style="font-size: 10px;">Mã đơn: ${order._id.slice(-8).toUpperCase()}</div>
+                        $tableBody.append(`
+                            <tr>
+                                <td>${index + 1}</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="fw-bold small">${firstItemName}</div>
+                                            <div class="text-muted" style="font-size: 10px;">Mã đơn: ${order._id.slice(-8).toUpperCase()}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td><span class="badge ${statusClass}">${translateStatus(order.status)}</span></td>
-                            <td class="small">${orderDate}</td>
-                            <td class="fw-bold text-danger">${order.totalAmount.toLocaleString()} đ</td>
-                            <td class="text-center">
-                                <a href="/user-profile/order-history/${order._id}" class="btn btn-sm btn-light border rounded-pill px-3">Chi tiết</a>
-                            </td>
-                        </tr>
-                    `);
-                });
-                
-                $('.badge.bg-danger.rounded-pill').text(`${res.orders.length} đơn hàng`);
-            }
-        },
-        error: (err) => console.error("Lỗi tải đơn hàng:", err)
-    });
-};
+                                </td>
+                                <td><span class="badge ${statusClass}">${translateStatus(order.status)}</span></td>
+                                <td class="small">${orderDate}</td>
+                                <td class="fw-bold text-danger">${order.totalAmount.toLocaleString()} đ</td>
+                                <td class="text-center">
+                                    <a href="/user-profile/order-history/${order._id}" class="btn btn-sm btn-light border rounded-pill px-3">Chi tiết</a>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                    
+                    $('.badge.bg-danger.rounded-pill').text(`${res.orders.length} đơn hàng`);
+                }
+            },
+            error: (err) => console.error("Lỗi tải đơn hàng:", err)
+        });
+    };
 
-    $('#modalUpdate .btn-danger').on('click', function() {
+    $('#modalUpdate .btn-danger').off('click').on('click', function() {
         const btn = $(this);
         const updatedData = {
             name: $('#editName').val().trim(),
@@ -108,7 +109,7 @@ export const initUserProfile = () => {
         });
     });
 
-    $('#modalPass .btn-danger').on('click', function() {
+    $('#modalPass .btn-danger').off('click').on('click', function() {
         const btn = $(this);
         const oldPassword = $('#modalPass input[placeholder="Mật khẩu hiện tại"]').val();
         const newPassword = $('#modalPass input[placeholder="Mật khẩu mới"]').val();
@@ -150,7 +151,7 @@ export const initUserProfile = () => {
         });
     });
 
-    $('#btnLogout').on('click', function(e) {
+    $('#btnLogout').off('click').on('click', function(e) {
         e.preventDefault();
         if (confirm("Bạn có chắc muốn đăng xuất không?")) {
             $.post('/api/auth/logout', (res) => {

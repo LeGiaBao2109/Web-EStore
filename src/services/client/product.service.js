@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Product = require('../../models/product.model');
+const Review = require("../../models/review.model");
 
 exports.findProductList = async (filters = {}) => {
     try {
@@ -102,12 +103,8 @@ exports.findProductList = async (filters = {}) => {
 
 exports.findProductBySlug = async (slug) => {
     try {
-        const pipeline = [{
-                $match: {
-                    slug: slug,
-                    status: "active"
-                }
-            },
+        const pipeline = [
+            { $match: { slug: slug, status: "active" } },
             {
                 $lookup: {
                     from: "prices",
@@ -116,8 +113,45 @@ exports.findProductBySlug = async (slug) => {
                     as: "priceData"
                 }
             },
+            { $unwind: "$priceData" },
             {
-                $unwind: "$priceData"
+                $lookup: {
+                    from: "reviews",
+                    localField: "name",
+                    foreignField: "productName",
+                    as: "reviews"
+                }
+            },
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "reviews.userId",
+                    foreignField: "_id",
+                    as: "user_details"
+                }
+            },
+            {
+                $addFields: {
+                    reviews: {
+                        $map: {
+                            input: "$reviews",
+                            as: "rev",
+                            in: {
+                                $mergeObjects: [
+                                    "$$rev",
+                                    {
+                                        userName: {
+                                            $arrayElemAt: [
+                                                "$user_details.name",
+                                                { $indexOfArray: ["$user_details._id", "$$rev.userId"] }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
             }
         ];
         const products = await Product.aggregate(pipeline);

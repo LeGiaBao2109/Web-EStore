@@ -7,6 +7,7 @@ import { initCartPage } from './pages/cart-page.js';
 import { initPaymentPage } from './pages/payment.js';
 import { initAuth } from './pages/auth.js';
 import { initUserProfile } from './pages/user-profile.js';
+import { initOrderHistoryDetail } from './pages/order-history.js';
 
 $(async function () {
     initNavbar();
@@ -46,7 +47,9 @@ $(async function () {
         initPaymentPage();
     }
 
-    if (path.includes('/user-profile')) {
+    if (path.includes('/user-profile/order-history/')) {
+        initOrderHistoryDetail();
+    } else if (path.includes('/user-profile')) {
         initUserProfile();
     }
 

@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const userService = require('../../services/client/user.service');
-const {
-    requireAuth
-} = require('../../middlewares/client/user.middleware');
+const { requireAuth } = require('../../middlewares/client/user.middleware');
 
 router.get('/profile', requireAuth, async (req, res) => {
     try {
@@ -51,7 +49,7 @@ router.get('/orders', requireAuth, async (req, res) => {
     }
 });
 
-router.get('/order-detail/:id', requireAuth, async (req, res) => {
+router.get('/order-history/:id', requireAuth, async (req, res) => {
     try {
         const orderId = req.params.id;
         const order = await userService.getOrderById(orderId);
@@ -88,6 +86,21 @@ router.post('/change-password', requireAuth, async (req, res) => {
         res.json({
             success: false,
             message: "Lỗi đổi mật khẩu!"
+        });
+    }
+});
+
+router.post('/reviews/add', requireAuth, async (req, res) => {
+    try {
+        const { productName, content } = req.body;
+        const userId = req.session.user.id;
+
+        const result = await userService.addReview(userId, productName, content);
+        res.json(result);
+    } catch (error) {
+        res.json({
+            success: false,
+            message: "Lỗi hệ thống!"
         });
     }
 });
