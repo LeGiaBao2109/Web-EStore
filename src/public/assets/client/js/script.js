@@ -4,6 +4,7 @@ import { initProductList, initProductGrid } from './pages/product-list.js';
 import { initProductDetail } from './pages/product-detail.js';
 import { initCartActions } from './pages/cart.js';
 import { initCartPage } from './pages/cart-page.js';
+import { initPaymentPage } from './pages/payment.js';
 import { initAuth } from './pages/auth.js';
 
 $(async function () {
@@ -38,6 +39,10 @@ $(async function () {
 
     if (window.location.pathname.includes('/cart')) {
         initCartPage();
+    }
+
+    if (window.location.pathname.includes('/cart/payment')) {
+        initPaymentPage();
     }
 
     $('#search-form').on('submit', function (e) {

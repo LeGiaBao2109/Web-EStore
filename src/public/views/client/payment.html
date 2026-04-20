@@ -30,11 +30,11 @@
             <div class="customer-info bg-light p-3 rounded-3 mb-4">
               <div class="row gy-2">
                 <div class="col-sm-4 text-muted small">Họ và tên:</div>
-                <div class="col-sm-8 fw-bold text-dark">Trần Quốc Long</div>
+                <div class="col-sm-8 fw-bold text-dark" id="user-fullname">Đang tải...</div>
                 <div class="col-sm-4 text-muted small">Email:</div>
-                <div class="col-sm-8 text-dark">longtranquoc@gmail.com</div>
+                <div class="col-sm-8 text-dark" id="user-email">Đang tải...</div>
                 <div class="col-sm-4 text-muted small">Điện thoại:</div>
-                <div class="col-sm-8 text-dark">0358356268</div>
+                <div class="col-sm-8 text-dark" id="user-phone">Đang tải...</div>
               </div>
             </div>
 
@@ -75,59 +75,25 @@
           <div class="card border-0 shadow-sm rounded-4 p-4">
             <h4 class="fw-bold mb-4 text-dark">Đơn hàng của bạn</h4>
 
-            <div class="order-items mb-4">
-              <div class="order-item-row mb-3 pb-3 border-bottom">
-                <div class="flex-shrink-0">
-                  <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
-                    class="rounded-3 border bg-white" style="width: 70px; height: 70px; object-fit: contain;">
-                </div>
-
-                <div class="product-info-detail">
-                  <h6 class="mb-0 fw-bold text-dark">iPhone 12 Mini</h6>
-                  <small class="text-muted d-block">64GB, Xanh Navy</small>
-                  <span class="qty-label">Số lượng: 1</span>
-                </div>
-
-                <div class="product-price-block">
-                  <div class="fw-bold text-dark">30,000,000 đ</div>
-                </div>
-              </div>
-
-              <div class="order-item-row mb-3">
-                <div class="flex-shrink-0">
-                  <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
-                    class="rounded-3 border bg-white" style="width: 70px; height: 70px; object-fit: contain;">
-                </div>
-
-                <div class="product-info-detail">
-                  <h6 class="mb-0 fw-bold text-dark">iPhone 11 Pro Max</h6>
-                  <small class="text-muted d-block">128GB, Xanh Navy</small>
-                  <span class="qty-label">Số lượng: 1</span>
-                </div>
-
-                <div class="product-price-block">
-                  <div class="fw-bold text-dark">20,000,000 đ</div>
-                </div>
-              </div>
-            </div>
+            <div class="order-items mb-4"></div>
 
             <div class="order-summary bg-light p-3 rounded-4">
               <div class="d-flex justify-content-between mb-2">
                 <span class="text-muted small">Tạm tính:</span>
-                <span class="fw-bold small text-dark">50,000,000 đ</span>
+                <span class="fw-bold small text-dark" id="sub-total">0 đ</span>
               </div>
               <div class="d-flex justify-content-between mb-2">
-                <span class="text-muted small">Thuế VAT (0%):</span>
-                <span class="fw-bold small text-dark">0 đ</span>
+                <span class="text-muted small">Thuế VAT (10%):</span>
+                <span class="fw-bold small text-dark" id="vat-amount">0 đ</span>
               </div>
               <hr class="my-3">
               <div class="d-flex justify-content-between align-items-center">
                 <span class="h5 fw-bold mb-0">Tổng tiền:</span>
-                <span class="h4 fw-bold text-danger mb-0">50,000,000 đ</span>
+                <span class="h4 fw-bold text-danger mb-0" id="final-total">0 đ</span>
               </div>
             </div>
 
-            <button type="submit"
+            <button type="button" id="btn-submit-order"
               class="btn btn-danger w-100 py-3 rounded-pill fw-bold fs-5 mt-4 shadow transform-hover">
               XÁC NHẬN ĐẶT HÀNG
             </button>
@@ -195,21 +161,11 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const menuToggle = document.getElementById("menuToggle");
-      const headerBottom = document.querySelector(".header-bottom");
-
-      if (menuToggle && headerBottom) {
-        menuToggle.addEventListener("click", function () {
-          headerBottom.classList.toggle("show-menu");
-        });
-      }
-    });
-  </script>
-  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/vendor/jquery/jquery.min.js"></script>
-  <script type="module" src="/assets/client/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="/assets/client/js/script.js"></script>
 </body>
 
 </html>

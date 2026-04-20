@@ -16,6 +16,13 @@ export const initCartActions = () => {
             alert("Đang tải dữ liệu sản phẩm, vui lòng đợi!");
         }
     });
+
+    $(document).on('click', '#btn-checkout-cart', function (e) {
+        e.preventDefault();
+        localStorage.setItem('checkout_type', 'cart');
+        localStorage.removeItem('buy_now_id');
+        window.location.href = $(this).attr('href');
+    });
 };
 
 function handleAddToCart(productId, quantity) {

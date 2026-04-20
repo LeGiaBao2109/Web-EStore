@@ -19,6 +19,13 @@ export async function initCartPage() {
         if (val >= 1) updateQuantity($(this).closest('.cart-item').data('id'), val);
     });
 
+    $(document).on('click', '#btn-go-to-checkout', function (e) {
+        e.preventDefault();
+        localStorage.setItem('checkout_type', 'cart');
+        localStorage.removeItem('buy_now_id');
+        window.location.href = '/cart/payment';
+    });
+
     $(document).on('click', '.btn-remove', function () {
         const productId = $(this).closest('.cart-item').data('id');
 
