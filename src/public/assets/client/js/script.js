@@ -1,27 +1,16 @@
-import {
-    initNavbar
-} from './utils/navbar.js';
-import {
-    initProductSlider
-} from './utils/slider.js';
-import {
-    initProductList,
-    initProductGrid
-} from './pages/product-list.js';
-import {
-    initAuth
-} from './pages/auth.js';
+import { initNavbar } from './utils/navbar.js';
+import { initProductSlider } from './utils/slider.js';
+import { initProductList, initProductGrid } from './pages/product-list.js';
+import { initAuth } from './pages/auth.js';
 
 $(async function () {
-
     initNavbar();
+    initAuth();
 
     const isDataLoaded = await initProductList();
 
     if (isDataLoaded) {
-
         const productSlider = initProductSlider('productSlider');
-
         if (productSlider) {
             $('.next-btn').off('click').on('click', function (e) {
                 e.preventDefault();
@@ -35,7 +24,6 @@ $(async function () {
     }
 
     initProductGrid();
-    initAuth();
 
     $('#search-form').on('submit', function (e) {
         e.preventDefault();
@@ -43,5 +31,44 @@ $(async function () {
         if (keyword) {
             window.location.href = `/products/search?keyword=${encodeURIComponent(keyword)}`;
         }
+    });
+
+    $.get('/api/auth/me', function (res) {
+        if (res.success) {
+            // 1. Tìm và ẩn nút giỏ hàng đứng riêng lẻ kế bên
+            $('#auth-header-area').find('a[href="/cart"]').addClass('d-none');
+
+            // 2. Thay thế icon user bằng Dropdown chứa luôn mục Giỏ hàng
+            const $userIcon = $('.js-header-user');
+            if ($userIcon.length > 0) {
+                const firstName = (res.user.name || "User").split(' ').pop();
+
+                $userIcon.replaceWith(`
+                    <div class="dropdown d-flex align-items-center ms-2">
+                        <a class="btn btn-danger rounded-pill px-3 py-1 d-flex align-items-center dropdown-toggle border-0 shadow-sm" 
+                           href="#" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #c82333;">
+                            <i class="bi bi-person-circle me-2"></i>
+                            <span class="small fw-bold">${firstName}</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2">
+                            <li><a class="dropdown-item py-2" href="/user-profile"><i class="bi bi-person me-2"></i>Hồ sơ</a></li>
+                            <li><a class="dropdown-item py-2" href="/cart"><i class="bi bi-cart me-2"></i>Giỏ hàng của tôi</a></li>
+                            <li class="d-none"><a class="dropdown-item py-2" href="/orders"><i class="bi bi-bag me-2"></i>Đơn hàng</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item py-2 text-danger" href="#" id="btnLogout"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                `);
+            }
+        }
+    });
+
+    $(document).on('click', '#btnLogout', function (e) {
+        e.preventDefault();
+        $.post('/api/auth/logout', function (res) {
+            if (res.success) {
+                window.location.href = '/auth';
+            }
+        });
     });
 });
