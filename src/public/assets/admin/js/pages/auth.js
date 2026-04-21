@@ -43,7 +43,7 @@ export const checkAuth = (callback) => {
 };
 
 export const initLogout = () => {
-    $(document).on('click', '#btnLogout', function (e) {
+    $("#btnLogout").on('click', function (e) {
         e.preventDefault();
         
         $.ajax({

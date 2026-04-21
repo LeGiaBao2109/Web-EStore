@@ -17,7 +17,6 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Kết nối Database
 database.connect();
 
 app.use(session({
@@ -26,13 +25,10 @@ app.use(session({
     saveUninitialized: true
 }));
 
-// Sử dụng middleware ngay sau session
 app.use(userMiddleware.infoUser);
 
-// Thiết lập thư mục chứa file tĩnh của Frontend
 app.use(express.static(path.join(__dirname, 'src/public')));
 
-// Thiết lập đường dẫn
 app.use("/", clientRoutes);
 app.use("/admin", adminRoutes);
 app.use("/api/admin", adminApi);

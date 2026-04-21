@@ -39,7 +39,7 @@
                                 <i class="bi bi-people me-2"></i> Khách hàng
                             </button>
                             <hr>
-                            <a href="/logout" class="nav-link text-danger text-start">
+                            <a href="" id="btnLogout" class="nav-link text-danger text-start">
                                 <i class="bi bi-box-arrow-right me-2"></i> Đăng xuất
                             </a>
                         </div>
@@ -51,11 +51,9 @@
                         style="min-height: 80vh;">
 
                         <div class="tab-pane fade show active" id="content-home" role="tabpanel">
-
                             <div
                                 class="d-flex flex-wrap justify-content-between align-items-center border-bottom pb-3 mb-4 gap-3">
                                 <h4 class="fw-bold mb-0">Tổng quan hệ thống</h4>
-
                                 <div class="d-flex align-items-center gap-2 bg-light p-2 rounded-4 shadow-sm">
                                     <div class="input-group input-group-sm">
                                         <span
@@ -68,7 +66,7 @@
                                         <span
                                             class="input-group-text bg-transparent border-0 text-muted small">Đến</span>
                                         <input type="date" id="globalDateTo"
-                                            class="form-control border-0 bg-transparent shadow-none" value="2026-04-18">
+                                            class="form-control border-0 bg-transparent shadow-none" value="2026-04-21">
                                     </div>
                                     <button id="btnGlobalFilter" class="btn btn-dark btn-sm rounded-3 px-4">
                                         <i class="bi bi-filter me-1"></i> Áp dụng
@@ -78,7 +76,7 @@
 
                             <div class="container-fluid p-0">
                                 <div class="row g-3 mb-4">
-                                    <div class="col-6 col-lg-3">
+                                    <div class="col-6 col-lg-4">
                                         <div class="card border-0 shadow-sm rounded-4 p-3 bg-white stat-card">
                                             <div class="d-flex align-items-center mb-2">
                                                 <div class="bg-primary-subtle text-primary rounded-2 p-2 me-3">
@@ -86,11 +84,10 @@
                                                 </div>
                                                 <small class="text-muted fw-bold small text-uppercase">Doanh thu</small>
                                             </div>
-                                            <h4 class="fw-bold mb-0" id="stat-revenue">1.250M</h4>
-                                            <small class="text-success small"><i class="bi bi-arrow-up"></i> 12%</small>
+                                            <h4 class="fw-bold mb-0" id="stat-revenue">0M</h4>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-lg-3">
+                                    <div class="col-6 col-lg-4">
                                         <div class="card border-0 shadow-sm rounded-4 p-3 bg-white stat-card">
                                             <div class="d-flex align-items-center mb-2">
                                                 <div class="bg-success-subtle text-success rounded-2 p-2 me-3">
@@ -98,11 +95,10 @@
                                                 </div>
                                                 <small class="text-muted fw-bold small text-uppercase">Tồn kho</small>
                                             </div>
-                                            <h4 class="fw-bold mb-0" id="stat-stock">842</h4>
-                                            <small class="text-muted small">Cập nhật lúc này</small>
+                                            <h4 class="fw-bold mb-0" id="stat-stock">0</h4>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-lg-3">
+                                    <div class="col-12 col-lg-4">
                                         <div class="card border-0 shadow-sm rounded-4 p-3 bg-white stat-card">
                                             <div class="d-flex align-items-center mb-2">
                                                 <div class="bg-warning-subtle text-warning rounded-2 p-2 me-3">
@@ -110,99 +106,26 @@
                                                 </div>
                                                 <small class="text-muted fw-bold small text-uppercase">Đơn mới</small>
                                             </div>
-                                            <h4 class="fw-bold mb-0" id="stat-orders">45</h4>
-                                            <small class="text-danger small">Trong khoảng lọc</small>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 col-lg-3">
-                                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white stat-card">
-                                            <div class="d-flex align-items-center mb-2">
-                                                <div class="bg-danger-subtle text-danger rounded-2 p-2 me-3">
-                                                    <i class="bi bi-graph-up-arrow fs-4"></i>
-                                                </div>
-                                                <small class="text-muted fw-bold small text-uppercase">Lợi nhuận</small>
-                                            </div>
-                                            <h4 class="fw-bold mb-0" id="stat-profit">315M</h4>
-                                            <small class="text-success small"><i class="bi bi-arrow-up"></i> 5%</small>
+                                            <h4 class="fw-bold mb-0" id="stat-orders">0</h4>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row g-4">
-                                    <div class="col-12 col-xl-8">
-                                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
-                                            <div class="mb-4">
-                                                <h6 class="fw-bold mb-0">Doanh thu</h6>
-                                                <small class="text-muted small" id="chartRangeLabel">Từ 01/04/2026 đến
-                                                    18/04/2026</small>
-                                            </div>
-                                            <div style="height: 350px;">
-                                                <canvas id="revenueChart"></canvas>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 col-xl-4">
-                                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mb-4">
-                                            <h6 class="fw-bold mb-4">Tỷ trọng Dòng sản phẩm</h6>
-                                            <div style="height: 250px;">
-                                                <canvas id="categoryChart"></canvas>
-                                            </div>
-                                        </div>
-
+                                    <div class="col-12">
                                         <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-                                            <h6 class="fw-bold mb-4">Top bán chạy</h6>
-                                            <div class="top-products-list" id="topProductsContainer">
-                                                <div class="d-flex align-items-center mb-3">
-                                                    <div class="bg-light rounded-3 p-2 me-3"
-                                                        style="width: 45px; height: 45px;">
-                                                        <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
-                                                            alt="iPhone" class="img-fluid rounded-2">
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="small fw-bold mb-0">iPhone 15 Pro Max</h6>
-                                                        <small class="text-muted"
-                                                            style="font-size: 0.7rem;">Apple</small>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <span class="fw-bold text-dark small">120</span>
-                                                        <div class="text-muted" style="font-size: 0.65rem;">Đã bán</div>
-                                                    </div>
+                                            <div class="d-flex justify-content-between align-items-start mb-4">
+                                                <div>
+                                                    <h6 class="fw-bold mb-0">Biểu đồ doanh thu</h6>
+                                                    <small class="text-muted small" id="chartRangeLabel"></small>
                                                 </div>
-
-                                                <div class="d-flex align-items-center mb-3">
-                                                    <div class="bg-light rounded-3 p-2 me-3"
-                                                        style="width: 45px; height: 45px;">
-                                                        <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
-                                                            alt="iPhone 13" class="img-fluid rounded-2">
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="small fw-bold mb-0">iPhone 13 White</h6>
-                                                        <small class="text-muted"
-                                                            style="font-size: 0.7rem;">Apple</small>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <span class="fw-bold text-dark small">85</span>
-                                                        <div class="text-muted" style="font-size: 0.65rem;">Đã bán</div>
-                                                    </div>
+                                                <div class="d-flex gap-3">
+                                                    <div class="small"><i class="bi bi-circle-fill text-danger me-1"
+                                                            style="font-size: 8px;"></i> Doanh thu</div>
                                                 </div>
-
-                                                <div class="d-flex align-items-center">
-                                                    <div class="bg-light rounded-3 p-2 me-3"
-                                                        style="width: 45px; height: 45px;">
-                                                        <img src="https://res.cloudinary.com/dvuxeesfo/image/upload/v1774925426/iphone-13-white_nphhll.webp"
-                                                            alt="Macbook" class="img-fluid rounded-2">
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="small fw-bold mb-0">Macbook Pro M3</h6>
-                                                        <small class="text-muted"
-                                                            style="font-size: 0.7rem;">Laptop</small>
-                                                    </div>
-                                                    <div class="text-end">
-                                                        <span class="fw-bold text-dark small">62</span>
-                                                        <div class="text-muted" style="font-size: 0.65rem;">Đã bán</div>
-                                                    </div>
-                                                </div>
+                                            </div>
+                                            <div style="height: 400px;">
+                                                <canvas id="revenueChart"></canvas>
                                             </div>
                                         </div>
                                     </div>
@@ -312,8 +235,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label small fw-bold">Thương hiệu</label>
-                                                <select id="addBrand"
-                                                    class="form-select border-0 bg-light shadow-none">
+                                                <select id="addBrand" class="form-select border-0 bg-light shadow-none">
                                                 </select>
                                             </div>
                                             <div class="col-12">
@@ -383,7 +305,8 @@
                                                             <div class="col-md-6">
                                                                 <label class="form-label small fw-bold">Danh mục</label>
                                                                 <select id="editProductCategory"
-                                                                    class="form-select border-0 bg-light shadow-none" readOnly>
+                                                                    class="form-select border-0 bg-light shadow-none"
+                                                                    readOnly>
                                                                     <option value="dien-thoai">Điện thoại</option>
                                                                     <option value="tablet">Máy tính bảng</option>
                                                                     <option value="laptop">Laptop</option>
@@ -776,7 +699,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <h6 class="fw-bold mb-3 text-uppercase small text-muted">Trạng thái xử lý</h6>
+                            <h6 class="fw-bold mb-3 text-uppercase small text-muted">Trạng thái đơn hàng</h6>
                             <label class="small fw-bold">Cập nhật trạng thái:</label>
                             <select class="form-select border-0 bg-light shadow-none mb-3" id="updateStatusSelect">
                                 <option value="pending">Chờ xác nhận</option>
@@ -787,13 +710,12 @@
                             </select>
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" id="paymentStatusSwitch" checked>
-                                <label class="form-check-label small" for="paymentStatusSwitch">Đã thanh toán
-                                    (Paid)</label>
+                                <label class="form-check-label small" for="paymentStatusSwitch">Đã thanh toán</label>
                             </div>
                         </div>
 
                         <div class="col-12">
-                            <h6 class="fw-bold mb-3 text-uppercase small text-muted">Sản phẩm trong đơn</h6>
+                            <h6 class="fw-bold mb-3 text-uppercase small text-muted">Sản phẩm có trong đơn</h6>
                             <div class="table-responsive">
                                 <table class="table table-sm align-middle">
                                     <thead class="bg-light">

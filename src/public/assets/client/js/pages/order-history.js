@@ -20,7 +20,7 @@ export const submitReview = () => {
     submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Đang gửi...';
 
     $.ajax({
-        url: '/api/user/reviews/add', // Sửa đường dẫn để khớp với user.api.js
+        url: '/api/user/reviews/add',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({
@@ -100,7 +100,6 @@ export const initOrderHistoryDetail = () => {
             order.items.forEach(item => {
                 const product = item.productId || {};
                 
-                // Lookup ảnh: Theo cấu trúc mới của bạn là product.image.url
                 let imgUrl = '/assets/client/images/default.png';
                 if (product.image && product.image.url) {
                     imgUrl = product.image.url;
