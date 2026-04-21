@@ -9,6 +9,7 @@ const userMiddleware = require('./src/middlewares/client/user.middleware');
 const clientRoutes = require('./src/routes/client/index.route');
 const adminRoutes = require('./src/routes/admin/index.route');
 const clientApi = require('./src/api/client/index.api');
+const adminApi = require('./src/api/admin/index.api');
 
 const app = express();
 const port = 3000;
@@ -34,6 +35,7 @@ app.use(express.static(path.join(__dirname, 'src/public')));
 // Thiết lập đường dẫn
 app.use("/", clientRoutes);
 app.use("/admin", adminRoutes);
+app.use("/api/admin", adminApi);
 app.use("/api", clientApi);
 
 app.listen(port, () => {
