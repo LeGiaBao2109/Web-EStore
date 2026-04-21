@@ -20,4 +20,4 @@ const warehouseLogSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model("WarehouseLog", warehouseLogSchema);
+module.exports = mongoose.model("WarehouseLog", warehouseLogSchema, "warehouse_logs");

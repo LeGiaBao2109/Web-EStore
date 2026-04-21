@@ -15,6 +15,7 @@ const productSchema = new mongoose.Schema({
         publicId: String
     },
     brand: String,
+    category: String,
     description: String,
     priceId: {
         type: mongoose.Schema.Types.ObjectId,
@@ -33,4 +34,4 @@ const productSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model("Product", productSchema);
+module.exports = mongoose.model("Product", productSchema, "products");

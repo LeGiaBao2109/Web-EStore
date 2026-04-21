@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang Thanh Toán</title>
+  <link rel="stylesheet" href="/assets/client/css/style.css" />
+  <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+</head>
+
+<body>
+  <header class="header-top navbar navbar-expand-lg navbar-light">
+    <div
+      class="header-top__container container container-fluid py-1 flex-lg-row flex-column align-items-center justify-content-between">
+      <a class="navbar-brand fw-bold text-white fs-3 d-lg-flex text-center" href="/">E-STORE</a>
+    </div>
+  </header>
+
+  <section class="payment py-5 bg-light">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-7">
+          <div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+            <h4 class="fw-bold mb-4 d-flex align-items-center">
+              <i class="bi bi-person-check me-2 text-danger"></i>Thông tin đặt hàng
+            </h4>
+
+            <div class="customer-info bg-light p-3 rounded-3 mb-4">
+              <div class="row gy-2">
+                <div class="col-sm-4 text-muted small">Họ và tên:</div>
+                <div class="col-sm-8 fw-bold text-dark" id="user-fullname">Đang tải...</div>
+                <div class="col-sm-4 text-muted small">Email:</div>
+                <div class="col-sm-8 text-dark" id="user-email">Đang tải...</div>
+                <div class="col-sm-4 text-muted small">Điện thoại:</div>
+                <div class="col-sm-8 text-dark" id="user-phone">Đang tải...</div>
+              </div>
+            </div>
+
+            <h5 class="fw-bold mb-3 small text-uppercase text-secondary">Địa chỉ giao hàng</h5>
+            <div class="address-input-group mb-4">
+              <div class="address-box p-3 rounded-4">
+                <label for="fullAddress" class="form-label small fw-bold text-dark mb-2">
+                  <i class="bi bi-geo-alt-fill text-danger me-1"></i> Nhập địa chỉ nhận hàng
+                </label>
+                <textarea class="form-control border-0 bg-white rounded-4 p-2 shadow-none" id="fullAddress" rows="3"
+                  placeholder="Số nhà, tên đường, phường/xã, quận/huyện..."></textarea>
+              </div>
+              <small class="text-muted mt-2 d-block" style="font-size: 0.75rem;">
+                * Vui lòng nhập chính xác để shipper tìm thấy bạn nhanh hơn.
+              </small>
+            </div>
+
+            <div class="payment-method p-3 border-start border-4 border-warning bg-warning bg-opacity-10 rounded-3">
+              <p class="mb-0 fw-bold small text-dark">
+                <i class="bi bi-cash-stack me-2"></i>Phương thức thanh toán:
+                <span class="fw-normal fst-italic">Thanh toán khi nhận hàng (COD)</span>
+              </p>
+            </div>
+
+            <div class="order-note mt-4">
+              <h5 class="fw-bold mb-3 small text-uppercase text-secondary">Ghi chú đơn hàng</h5>
+              <div class="form-floating">
+                <textarea class="form-control shadow-none rounded-3" placeholder="Lời nhắn..." id="orderNote"
+                  style="height: 100px; resize: none;"></textarea>
+                <label for="orderNote" class="text-muted small">Ví dụ: Giao hàng giờ hành chính, gọi trước khi
+                  đến...</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="card border-0 shadow-sm rounded-4 p-4">
+            <h4 class="fw-bold mb-4 text-dark">Đơn hàng của bạn</h4>
+
+            <div class="order-items mb-4"></div>
+
+            <div class="order-summary bg-light p-3 rounded-4">
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted small">Tạm tính:</span>
+                <span class="fw-bold small text-dark" id="sub-total">0 đ</span>
+              </div>
+              <div class="d-flex justify-content-between mb-2">
+                <span class="text-muted small">Thuế VAT (10%):</span>
+                <span class="fw-bold small text-dark" id="vat-amount">0 đ</span>
+              </div>
+              <hr class="my-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="h5 fw-bold mb-0">Tổng tiền:</span>
+                <span class="h4 fw-bold text-danger mb-0" id="final-total">0 đ</span>
+              </div>
+            </div>
+
+            <button type="button" id="btn-submit-order"
+              class="btn btn-danger w-100 py-3 rounded-pill fw-bold fs-5 mt-4 shadow transform-hover">
+              XÁC NHẬN ĐẶT HÀNG
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer mt-5">
+    <div class="footer-top py-5">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-6">
+            <a class="navbar-brand fw-bold text-white fs-3 d-block mb-3" href="/">E-STORE</a>
+            <p class="text-white-50">
+              Chuyên cung cấp các thiết bị công nghệ chính hãng với mức giá
+              cạnh tranh nhất thị trường. Chất lượng tạo nên niềm tin.
+            </p>
+            <div class="social-links d-flex gap-3 mt-4">
+              <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <h5 class="text-white fw-bold mb-4">Hỗ trợ khách hàng</h5>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Chính sách bảo hành</a></li>
+              <li><a href="#">Chính sách đổi trả</a></li>
+              <li><a href="#">Phương thức thanh toán</a></li>
+              <li><a href="#">Giao hàng & Lắp đặt</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <h5 class="text-white fw-bold mb-4">Thông tin liên hệ</h5>
+            <ul class="list-unstyled text-white-50 footer-contact">
+              <li class="mb-3">
+                <i class="bi bi-geo-alt-fill me-2 text-third"></i>
+                123 Đường ABC, Quận 1, TP. Hồ Chí Minh
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-telephone-fill me-2 text-third"></i>
+                1900 1234
+              </li>
+              <li class="mb-3">
+                <i class="bi bi-envelope-fill me-2 text-third"></i>
+                contact@estore.com
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom py-3">
+      <div class="container text-center">
+        <p class="text-white-50 mb-0 small">
+          © 2026 E-STORE. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="/assets/client/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Lịch Sử Đơn Hàng</title>
+    <link rel="stylesheet" href="/assets/client/css/style.css" />
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+</head>
+
+<body>
+    <header class="header-top navbar navbar-expand-lg navbar-light">
+        <div class="header-top__container container container-fluid py-1 flex-lg-row flex-column align-items-center justify-content-between">
+            <a class="navbar-brand fw-bold text-white fs-3 d-lg-flex text-center" href="/">E-STORE</a>
+        </div>
+    </header>
+
+    <section class="order-history py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+                        <h5 class="fw-bold mb-4 d-flex align-items-center" id="order-id-display">
+                            <i class="bi bi-box-seam me-2 text-danger"></i> Đang tải...
+                        </h5>
+
+                        <div class="mb-3">
+                            <label class="text-muted small d-block">Trạng thái đơn hàng:</label>
+                            <span class="status-badge" id="order-status-display">---</span>
+                        </div>
+
+                        <div class="order-info-list gy-3 row">
+                            <div class="col-12 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Tên người mua:</span>
+                                <span class="fw-bold" id="order-user-name">---</span>
+                            </div>
+                            <div class="col-6 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Số điện thoại:</span>
+                                <span id="order-phone">---</span>
+                            </div>
+                            <div class="col-6 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Email:</span>
+                                <span id="order-email">---</span>
+                            </div>
+                            <div class="col-12 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Thời gian đặt hàng:</span>
+                                <span id="order-date">---</span>
+                            </div>
+                            <div class="col-12 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Địa chỉ nhận hàng:</span>
+                                <span id="order-address">---</span>
+                            </div>
+                            <div class="col-12 border-bottom pb-2 mb-2">
+                                <span class="text-muted small d-block">Hình thức thanh toán:</span>
+                                <span id="order-payment-method">---</span>
+                            </div>
+                            <div class="col-12">
+                                <span class="text-muted small d-block">Ghi chú:</span>
+                                <p class="small mb-0 fst-italic" id="order-note">---</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm rounded-4 p-4">
+                        <h5 class="fw-bold mb-4" id="order-items-count">Danh sách sản phẩm (0)</h5>
+
+                        <div class="order-items mb-4" id="order-items-list">
+                            <div class="text-center py-5">Đang tải danh sách sản phẩm...</div>
+                        </div>
+
+                        <div class="order-summary bg-light p-4 rounded-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Tổng tiền hàng:</span>
+                                <span class="fw-bold" id="total-items-price">0 đ</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Phí vận chuyển:</span>
+                                <span class="text-success fw-bold">Miễn phí</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="text-muted">Thuế VAT:</span>
+                                <span>0 đ</span>
+                            </div>
+                            <hr class="my-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 fw-bold mb-0">Tổng thanh toán:</span>
+                                <span class="h4 fw-bold text-danger mb-0" id="total-amount-display">0 đ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer mt-5">
+        <div class="footer-top py-5">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-5 col-md-6">
+                        <a class="navbar-brand fw-bold text-white fs-3 d-block mb-3" href="/">E-STORE</a>
+                        <p class="text-white-50">Chuyên cung cấp các thiết bị công nghệ chính hãng với mức giá cạnh tranh nhất thị trường.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom py-3">
+            <div class="container text-center">
+                <p class="text-white-50 mb-0 small">© 2026 E-STORE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold">Đánh giá sản phẩm</h5>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 p-2 border-start border-4 border-danger bg-light">
+                        <span class="text-muted small">Sản phẩm:</span>
+                        <div id="modalProductName" class="fw-bold text-dark"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reviewText" class="form-label small fw-bold text-secondary">Cảm nhận của bạn:</label>
+                        <textarea class="form-control shadow-none rounded-3 border-secondary-subtle" id="reviewText" rows="4" placeholder="Nhập nội dung đánh giá tại đây..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger rounded-pill px-4 fw-bold" id="btn-submit-review">Gửi đánh giá</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script type="module" src="/assets/client/js/script.js"></script>
+</body>
+
+</html>

@@ -20,4 +20,4 @@ const priceSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model("Price", priceSchema);
+module.exports = mongoose.model("Price", priceSchema, "prices");

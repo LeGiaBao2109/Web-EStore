@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="/assets/client/css/style.css">
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <header class="header-top navbar navbar-expand-lg navbar-light">
+        <div
+            class="header-top__container container container-fluid py-1 flex-lg-row flex-column align-items-center justify-content-between">
+            <a class="navbar-brand fw-bold text-white fs-3 d-lg-flex text-center" href="/">E-STORE</a>
+
+            <form class="d-flex w-100 me-3" role="search" id="search-form">
+                <input class="form-control mx-2 rounded-pill shadow-none" id="search-input" type="search" name="keyword"
+                    placeholder="Bạn đang tìm gì à?" aria-label="Search" />
+                <button class="btn header-top__btn--search text-white px-4 fw-bold text-uppercase border-0"
+                    type="submit">Search</button>
+            </form>
+            <div class="icons d-flex align-items-center justify-content-center gap-3">
+                <button class="btn text-white border-0 fs-2 p-0 me-2" id="menuToggle">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="sub-icons d-flex align-items-center justify-content-between gap-3" id="auth-header-area">
+                    <a class="icon-link bg-white rounded-circle align-items-center justify-content-center js-header-user"
+                        href="/auth">
+                        <i class="bi bi-person fs-5 d-flex"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="product-detail py-5">
+        <div class="container">
+            <input type="hidden" class="js-product-id">
+            <div class="row gy-4">
+                <div class="col-12 col-lg-5">
+                    <div class="product__item--detail">
+                        <div
+                            class="product__image img-thumbnail d-flex align-items-center justify-content-center rounded-3 p-4 p-md-5 bg-white shadow-sm">
+                            <img src="" alt="" class="img-fluid js-product-image"
+                                style="max-height: 400px; object-fit: contain;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-7">
+                    <div class="product__info-wrapper ps-lg-4">
+                        <h3 class="product__item--title fw-bold text-uppercase mb-3 js-product-title">
+                            Đang tải...
+                        </h3>
+
+                        <div class="product__item--price mb-3">
+                            <span class="text-secondary fw-bold text-uppercase small">Giá bán:</span>
+                            <h4 class="product__price fw-bold text-danger fs-3 mt-1 js-product-price">
+                                0đ
+                            </h4>
+                        </div>
+
+                        <div class="product__item--buttons d-flex flex-wrap gap-2 mt-4">
+                            <button
+                                class="btn btn-danger btn-lg rounded-pill px-5 flex-grow-1 flex-md-grow-0 fw-bold btn-buy-now">
+                                MUA NGAY
+                            </button>
+                            <button
+                                class="btn btn-outline-danger btn-lg rounded-circle d-flex align-items-center justify-content-center"
+                                style="width: 56px; height: 56px;">
+                                <i class="bi bi-cart fs-4"></i>
+                            </button>
+                        </div>
+
+                        <hr class="my-4 text-secondary opacity-25">
+
+                        <div class="product__item--desc">
+                            <h5 class="product__desc--title fw-bold mb-3 border-start border-danger border-4 ps-2">
+                                Mô tả sản phẩm
+                            </h5>
+                            <div class="product__desc--content text-secondary lh-lg js-product-desc"
+                                style="text-align: justify;">
+                            </div>
+                        </div>
+                        <div class="product__item--reviews mt-5">
+                            <h5 class="fw-bold mb-4 border-start border-danger border-4 ps-2 text-uppercase">
+                                Khách hàng nói gì về sản phẩm
+                            </h5>
+
+                            <div class="review-list border-0 bg-transparent">
+                                <div class="review-item p-3 mb-3 rounded-4 bg-white shadow-sm border">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle bg-danger text-white rounded-circle d-flex align-items-center justify-content-center fw-bold me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem;">
+                                                NA
+                                            </div>
+                                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.9rem;">Nguyễn Văn A
+                                            </h6>
+                                        </div>
+                                        <span class="text-muted" style="font-size: 0.75rem;">2 giờ trước</span>
+                                    </div>
+                                    <p class="text-secondary mb-0 ps-1"
+                                        style="font-size: 0.9rem; border-left: 2px solid #f8d7da;">
+                                        Sản phẩm dùng rất mượt, nhân viên giao hàng nhiệt tình. Đáng đồng tiền bát gạo!
+                                    </p>
+                                </div>
+
+                                <div class="review-item p-3 mb-3 rounded-4 bg-white shadow-sm border">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-circle bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold me-2"
+                                                style="width: 35px; height: 35px; font-size: 0.8rem;">
+                                                TB
+                                            </div>
+                                            <h6 class="fw-bold mb-0 text-dark" style="font-size: 0.9rem;">Trần Thị B
+                                            </h6>
+                                        </div>
+                                        <span class="text-muted" style="font-size: 0.75rem;">Hôm qua</span>
+                                    </div>
+                                    <p class="text-secondary mb-0 ps-1"
+                                        style="font-size: 0.9rem; border-left: 2px solid #e2e3e5;">
+                                        Mới nhận hàng sáng nay, đóng gói rất kỹ. Sẽ quay lại ủng hộ shop.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer mt-5">
+        <div class="footer-top py-5">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-5 col-md-6">
+                        <a class="navbar-brand fw-bold text-white fs-3 d-block mb-3" href="/">E-STORE</a>
+                        <p class="text-white-50">
+                            Chuyên cung cấp các thiết bị công nghệ chính hãng với mức giá cạnh tranh nhất thị trường.
+                            Chất lượng tạo nên niềm tin.
+                        </p>
+                        <div class="social-links d-flex gap-3 mt-4">
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white fw-bold mb-4">Hỗ trợ khách hàng</h5>
+                        <ul class="list-unstyled footer-links">
+                            <li><a href="#">Chính sách bảo hành</a></li>
+                            <li><a href="#">Chính sách đổi trả</a></li>
+                            <li><a href="#">Phương thức thanh toán</a></li>
+                            <li><a href="#">Giao hàng & Lắp đặt</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="text-white fw-bold mb-4">Thông tin liên hệ</h5>
+                        <ul class="list-unstyled text-white-50 footer-contact">
+                            <li class="mb-3">
+                                <i class="bi bi-geo-alt-fill me-2 text-third"></i>
+                                123 Đường ABC, Quận 1, TP. Hồ Chí Minh
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-telephone-fill me-2 text-third"></i>
+                                1900 1234
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-envelope-fill me-2 text-third"></i>
+                                contact@estore.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom py-3">
+            <div class="container text-center">
+                <p class="text-white-50 mb-0 small">
+                    © 2026 E-STORE. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/assets/client/js/script.js"></script>
+</body>
+
+</html>
