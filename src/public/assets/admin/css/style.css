@@ -207,3 +207,33 @@ img {
 .stat-card:hover {
     transform: translateY(-5px);
 }
+
+.print-only {
+    display: none;
+}
+
+/* @media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #print-section,
+    #print-section * {
+        visibility: visible;
+        display: block !important;
+    }
+
+    #print-section {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    @page {
+        size: auto;
+        margin: 0mm;
+    }
+} */
