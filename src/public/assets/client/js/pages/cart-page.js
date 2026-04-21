@@ -1,6 +1,4 @@
-import {
-    formatPrice
-} from '../../../js/helpers/format.js';
+import { formatPrice } from '../../../js/helpers/format.js';
 
 export async function initCartPage() {
     if (!$('.cart').length) return;
@@ -19,6 +17,18 @@ export async function initCartPage() {
         if (val >= 1) updateQuantity($(this).closest('.cart-item').data('id'), val);
     });
 
+    $(document).on('change', '.cart-qty', function () {
+        const productId = $(this).closest('.cart-item').data('id');
+        let val = parseInt($(this).val());
+
+        if (isNaN(val) || val < 1) {
+            alert("Số lượng phải là số và lớn hơn 0");
+            loadCart(); 
+            return;
+        }
+        updateQuantity(productId, val);
+    });
+
     $(document).on('click', '#btn-go-to-checkout', function (e) {
         e.preventDefault();
         localStorage.setItem('checkout_type', 'cart');
@@ -28,20 +38,13 @@ export async function initCartPage() {
 
     $(document).on('click', '.btn-remove', function () {
         const productId = $(this).closest('.cart-item').data('id');
-
         if (confirm("Xác nhận xóa sản phẩm này khỏi giỏ hàng?")) {
             $.ajax({
                 url: '/api/cart/remove',
                 type: 'DELETE',
-                data: {
-                    productId
-                },
+                data: { productId },
                 success: function (res) {
-                    if (res.success) {
-                        loadCart();
-                    } else {
-                        alert(res.message || "Không thể xóa sản phẩm");
-                    }
+                    if (res.success) loadCart();
                 }
             });
         }
@@ -64,10 +67,7 @@ function updateQuantity(productId, quantity) {
     $.ajax({
         url: '/api/cart/update-quantity',
         type: 'POST',
-        data: {
-            productId,
-            quantity
-        },
+        data: { productId, quantity },
         success: function (res) {
             if (res.success) {
                 loadCart();
@@ -101,14 +101,14 @@ function renderCartItems(cart) {
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="input-group input-group-sm border rounded-pill overflow-hidden" style="width: 110px;">
                             <button class="btn btn-light border-0 btn-minus"><i class="bi bi-dash"></i></button>
-                            <input type="text" class="form-control border-0 text-center fw-bold bg-transparent p-0 cart-qty" value="${item.quantity}" readonly>
+                            <input type="number" class="form-control border-0 text-center fw-bold bg-transparent p-0 cart-qty" value="${item.quantity}" min="1">
                             <button class="btn btn-light border-0 btn-plus"><i class="bi bi-plus"></i></button>
                         </div>
                     </div>
                 </td>
                 <td class="py-4 text-center d-none d-lg-table-cell">${formatPrice(item.price)}</td>
                 <td class="py-4 text-center d-none d-lg-table-cell fw-bold text-danger">${formatPrice(totalItemPrice)}</td>
-                <td class="py-4 text-center d-none d-lg-table-cell">
+                <td class="py-4 text-center">
                     <button class="btn btn-outline-danger btn-sm border-0 btn-remove"><i class="bi bi-x-lg"></i></button>
                 </td>
             </tr>

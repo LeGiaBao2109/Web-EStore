@@ -18,7 +18,7 @@ export function initOrders() {
     const renderOrderTable = (orders) => {
         let html = orders.map(order => `
             <tr>
-                <td><span class="fw-bold">ORD-${order._id.slice(-6).toUpperCase()}</span></td>
+                <td><span class="fw-bold">${order._id}</span></td>
                 <td>
                     <div class="fw-bold small">${order.userId?.name || 'N/A'}</div>
                     <small class="text-muted" style="font-size: 0.75rem;">${order.phone}</small>
@@ -42,7 +42,7 @@ export function initOrders() {
             <div class="card border-0 shadow-sm rounded-4 p-3 mb-3 border-start border-4 ${getStatusBorder(order.status)}">
                 <div class="d-flex justify-content-between align-items-start mb-2">
                     <div>
-                        <span class="fw-bold text-dark">#ORD-${order._id.slice(-6).toUpperCase()}</span>
+                        <span class="fw-bold text-dark">${order._id}</span>
                         <div class="small text-muted">${new Date(order.createdAt).toLocaleDateString('vi-VN')}</div>
                     </div>
                     ${getStatusBadge(order.status)}
@@ -76,7 +76,7 @@ export function initOrders() {
                     window.currentOrderData = res;
 
                     $('#modalOrderDetail').attr('data-id', order._id);
-                    $('#detailOrderId').text(`ORD-${order._id.slice(-6).toUpperCase()}`);
+                    $('#detailOrderId').text(order._id);
 
                     const $customerCard = $('#modalOrderDetail .card.bg-light');
                     $customerCard.find('span').eq(0).text(order.userId ?.name || 'N/A');
@@ -133,7 +133,7 @@ export function initOrders() {
             invoiceCalc
         } = window.currentOrderData;
 
-        $('#p-order-id').text(`ORD-${order._id.slice(-6).toUpperCase()}`);
+        $('#p-order-id').text(order._id);
         $('#p-date').text(new Date(order.createdAt).toLocaleDateString('vi-VN'));
         $('#p-name').text(order.userId ?.name || 'N/A');
         $('#p-phone').text(order.phone);

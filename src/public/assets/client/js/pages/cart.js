@@ -1,19 +1,16 @@
 export const initCartActions = () => {
     $(document).on('click', '.add-to-cart', function (e) {
         e.preventDefault();
-        const productId = $(this).data('id');
-        if (productId) {
-            handleAddToCart(productId, 1);
-        }
-    });
+        e.stopPropagation();
 
-    $(document).on('click', '.product__item--buttons .bi-cart', function (e) {
-        e.preventDefault();
-        const productId = $('.js-product-id').val();
-        if (productId) {
-            handleAddToCart(productId, 1);
-        } else {
-            alert("Đang tải dữ liệu sản phẩm, vui lòng đợi!");
+        const $btn = $(this);
+        const productId = $btn.data('id') || $('.js-product-id').val();
+
+        if (productId && !$btn.prop('disabled')) {
+            $btn.prop('disabled', true);
+            handleAddToCart(productId, 1, () => {
+                $btn.prop('disabled', false);
+            });
         }
     });
 
@@ -25,30 +22,28 @@ export const initCartActions = () => {
     });
 };
 
-function handleAddToCart(productId, quantity) {
+function handleAddToCart(productId, quantity, callback) {
     $.ajax({
         url: '/api/cart/add',
         type: 'POST',
-        data: {
-            productId: productId,
-            quantity: quantity
-        },
+        data: { productId, quantity },
         success: function (res) {
             if (res.success) {
                 alert("Đã thêm sản phẩm vào giỏ hàng!");
-                const $cartBadge = $('.bi-cart').closest('a').find('.badge');
-                if ($cartBadge.length) {
-                    $cartBadge.text(res.cartCount);
-                }
+                const $badge = $('.bi-cart').closest('a').find('.badge');
+                if ($badge.length) $badge.text(res.cartCount);
             } else {
                 alert(res.message);
                 if (res.message === "Vui lòng đăng nhập để mua hàng!") {
-                    window.location.href = '/auth'; 
+                    window.location.href = '/auth';
                 }
             }
         },
         error: function () {
-            alert("Lỗi kết nối server, không thể thêm vào giỏ hàng!");
+            alert("Lỗi kết nối server!");
+        },
+        complete: function () {
+            if (callback) callback();
         }
     });
 }
