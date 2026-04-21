@@ -29,7 +29,6 @@ function handleAddToCart(productId, quantity, callback) {
         data: { productId, quantity },
         success: function (res) {
             if (res.success) {
-                alert("Đã thêm sản phẩm vào giỏ hàng!");
                 const $badge = $('.bi-cart').closest('a').find('.badge');
                 if ($badge.length) $badge.text(res.cartCount);
             } else {
