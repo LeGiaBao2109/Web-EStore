@@ -12,13 +12,13 @@ module.exports.addToCart = async (userId, productData, quantity = 1) => {
         userId: userId
     });
 
-    // if (!cart) {
-    //     cart = new Cart({
-    //         userId: userId,
-    //         items: [],
-    //         totalAmount: 0
-    //     });
-    // }
+    if (!cart) {
+        cart = new Cart({
+            userId: userId,
+            items: [],
+            totalAmount: 0
+        });
+    }
 
     const existItem = cart.items.find(item => item.productId.toString() === productData._id.toString());
 

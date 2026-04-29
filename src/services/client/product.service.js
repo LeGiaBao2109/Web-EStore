@@ -64,7 +64,7 @@ exports.findProductList = async (filters = {}) => {
                     }
                 } : {
                     "finalPrice": {
-                        $gte: min
+                        $gt: min
                     }
                 };
             });

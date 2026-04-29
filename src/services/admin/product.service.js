@@ -78,6 +78,7 @@ module.exports.updatePrice = async (productId, priceData, adminId) => {
     await Product.findByIdAndUpdate(productId, {
         priceId: newPrice._id
     });
+    
     return newPrice;
 };
 
